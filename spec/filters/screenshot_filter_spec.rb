@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ScreenshotFilter do
+RSpec.describe Nexmo::Markdown::ScreenshotFilter do
   it 'renders image markdown if image location is present in input' do
     expect(File).to receive(:file?).and_return(true)
     input = <<~HEREDOC

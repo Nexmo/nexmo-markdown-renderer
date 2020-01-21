@@ -14,15 +14,15 @@ module CodeSnippetRenderer
       main = "#{package}#{filename.gsub('.java', '')}"
       chomped_package = package.chomp('.')
 
-      t('.run_command', chomped_package: chomped_package, package: package, main: main, file: file)
+      ::I18n.t('.run_command', chomped_package: chomped_package, package: package, main: main, file: file)
     end
 
     def self.create_instructions(filename)
-      t('.create_instructions', file: filename.gsub('.java', ''))
+      ::I18n.t('.create_instructions', file: filename.gsub('.java', ''))
     end
 
     def self.add_instructions(filename)
-      t('.add_instructions', file: filename.gsub('.java', ''))
+      ::I18n.t('.add_instructions', file: filename.gsub('.java', ''))
     end
   end
 end

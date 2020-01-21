@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MermaidFilter do
+RSpec.describe Nexmo::Markdown::MermaidFilter do
   it 'formats text starting with ```mermaid`' do
     input = <<~HEREDOC
       ```mermaid

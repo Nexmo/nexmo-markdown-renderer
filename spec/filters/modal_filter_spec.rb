@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ModalFilter do
+RSpec.describe Nexmo::Markdown::ModalFilter do
   it 'takes input of title and markdown link and produces HTML content' do
     allow(SecureRandom).to receive(:hex).and_return('12345')
     input = '@[Possible values](./spec/filters/fixtures/modals/api/developer/message/search/response/final-status.md)'

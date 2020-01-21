@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe IconFilter do
+RSpec.describe Nexmo::Markdown::IconFilter do
   it 'turns ✅ symbol into HTML' do
     input = <<~HEREDOC
       ✅

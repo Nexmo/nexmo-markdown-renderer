@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ColumnsFilter do
+RSpec.describe Nexmo::Markdown::ColumnsFilter do
   it 'wraps content into columns' do
     input = <<~HEREDOC
       {column:1/2}

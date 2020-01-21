@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LabelFilter do
+RSpec.describe Nexmo::Markdown::LabelFilter do
   it 'does not transform a random string' do
     input = 'some text'
 

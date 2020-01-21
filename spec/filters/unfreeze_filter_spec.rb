@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UnfreezeFilter do
+RSpec.describe Nexmo::Markdown::UnfreezeFilter do
   it 'returns whitespace with whitespace input' do
     input = ' '
 

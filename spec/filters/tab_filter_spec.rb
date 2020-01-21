@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TabFilter do
+RSpec.describe Nexmo::Markdown::TabFilter do
   before do
     allow(File).to receive(:exist?).and_call_original
   end

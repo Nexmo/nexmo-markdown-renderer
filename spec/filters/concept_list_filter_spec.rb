@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ConceptListFilter do
+RSpec.describe Nexmo::Markdown::ConceptListFilter do
   it 'raises an exception when invalid YAML is provided' do
     input = <<~HEREDOC
       ```concept_list

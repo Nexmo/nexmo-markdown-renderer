@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CodeSnippetsFilter do
+RSpec.describe Nexmo::Markdown::CodeSnippetsFilter do
   it 'returns unaltered input if input is not matching' do
     input = 'hello'
 
@@ -13,7 +13,7 @@ RSpec.describe CodeSnippetsFilter do
 
   it 'creates correct html output with correct input' do
     expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
-    allow_any_instance_of(CodeSnippetsFilter).to receive(:render_single_snippet).and_return('')
+    allow_any_instance_of(Nexmo::Markdown::CodeSnippetsFilter).to receive(:render_single_snippet).and_return('')
 
     input = <<~HEREDOC
       ```code_snippets

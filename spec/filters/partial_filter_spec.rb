@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PartialFilter do
+RSpec.describe Nexmo::Markdown::PartialFilter do
   it 'renders input as HTML with config["platform"] set to true' do
     allow(File).to receive(:read).and_return(mock_partial)
 

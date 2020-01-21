@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LanguageFilter do
+RSpec.describe Nexmo::Markdown::LanguageFilter do
   it 'does nothing to text that does not match the regex' do
     input = 'some text'
 

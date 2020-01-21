@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CodeSnippetFilter do
+RSpec.describe Nexmo::Markdown::CodeSnippetFilter do
   let(:example_source_file) do
     <<~HEREDOC
       require 'dotenv/load'

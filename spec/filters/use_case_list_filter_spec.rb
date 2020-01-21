@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UseCaseListFilter do
+RSpec.describe Nexmo::Markdown::UseCaseListFilter do
   it 'returns an instance of Tutorial with matching input' do
     allow(UseCase).to receive(:all).and_return([mock_tutorial])
 

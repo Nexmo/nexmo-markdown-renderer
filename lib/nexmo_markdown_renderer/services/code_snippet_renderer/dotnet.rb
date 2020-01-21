@@ -9,11 +9,11 @@ module CodeSnippetRenderer
     end
 
     def self.create_instructions(filename)
-      t('services.code_snippet_renderer.create_instructions', filename: filename)
+      ::I18n.t('services.code_snippet_renderer.create_instructions', filename: filename)
     end
 
     def self.add_instructions(filename)
-      t('services.code_snippet_renderer.add_instructions_to_file', file: filename)
+      ::I18n.t('services.code_snippet_renderer.add_instructions_to_file', file: filename)
     end
   end
 end

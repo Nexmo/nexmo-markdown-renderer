@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe I18n::SmartlingConverterFilter do
+RSpec.describe Nexmo::Markdown::I18n::SmartlingConverterFilter do
   let(:frontmatter) do
     <<~FRONTMATTER
       *** ** * ** ***
