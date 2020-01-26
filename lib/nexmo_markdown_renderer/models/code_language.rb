@@ -72,7 +72,7 @@ module Nexmo
       end
     
       private_class_method def self.config
-        @config ||= YAML.load_file('./lib/nexmo_markdown_renderer/config/code_languages.yml')
+        @config ||= YAML.load_file('./config/code_languages.yml')
       end
     end    
   end

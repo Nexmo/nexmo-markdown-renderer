@@ -8,7 +8,7 @@ require 'active_model'
 require 'i18n'
 require 'nexmo_markdown_renderer/initializers/redcarpet'
 require 'nexmo_markdown_renderer/initializers/i18n'
-require 'nexmo_markdown_renderer/config/core_ext/string'
+require 'nexmo_markdown_renderer/core_ext/string'
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/services/code_snippet_renderer', '*.rb')].each { |file| require_relative file }
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/models', '*.rb')].each { |file| require_relative file }
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/filters', '*.rb')].each { |file| require_relative file }
