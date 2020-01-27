@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+GEM_ROOT = File.expand_path("../..", __FILE__)
 require 'banzai'
 require 'octicons_helper'
 require 'nokogiri'
@@ -13,5 +13,4 @@ Dir[File.join(__dir__, 'nexmo_markdown_renderer/services/code_snippet_renderer',
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/models', '*.rb')].each { |file| require_relative file }
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/filters', '*.rb')].each { |file| require_relative file }
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/filters/i18n', '*.rb')].each { |file| require_relative file }
-GEM_ROOT = File.expand_path("../..", __FILE__)
 require_relative 'nexmo_markdown_renderer/markdown_renderer'

@@ -8,7 +8,6 @@ module Nexmo
       def call(input)
         input.gsub(/```single_code_snippet(.+?)```/m) do |_s|
           config = YAML.safe_load($1)
-    
           @renderer = get_renderer(config['language'])
     
           lexer = Nexmo::Markdown::CodeLanguage.find(config['language']).lexer
