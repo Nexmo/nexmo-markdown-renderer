@@ -19,7 +19,7 @@ module Nexmo
     
           return '' if @concepts.empty?
     
-          erb = File.read("./lib/nexmo_markdown_renderer/views/concepts/list/plain.html.erb")
+          erb = File.read("#{GEM_ROOT}/lib/nexmo_markdown_renderer/views/concepts/list/plain.html.erb")
           html = ERB.new(erb).result(binding)
           "FREEZESTART#{Base64.urlsafe_encode64(html)}FREEZEEND"
         end

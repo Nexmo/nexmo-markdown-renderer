@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.description = "Middleware to render Markdown Documents in Nexmo Developer Platform."
   spec.license     = "MIT"
 
-  spec.files = Dir["{lib}/**/*", "LICENSE.txt", "README.md"]
+  spec.files = Dir["{config}/**/*", "{lib}/**/*", "LICENSE.txt", "README.md"]
 
   spec.add_runtime_dependency('banzai', '~> 0.1.2')
   spec.add_runtime_dependency('octicons_helper', '~> 9.3')
