@@ -18,7 +18,7 @@ module Nexmo
       end
     
       def config_value(key)
-        @config_dynamic_content ||= YAML.load_file("#{Rails.root}/config/dynamic_content.yml")
+        @config_dynamic_content ||= YAML.load_file("#{GEM_ROOT}/config/dynamic_content.yml")
         @config_dynamic_content[key]
       end
     end

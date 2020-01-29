@@ -15,7 +15,7 @@ module Nexmo
             sort_array
           end
     
-          erb = File.read("#{Rails.root}/app/views/code_snippets/list/plain.html.erb")
+          erb = File.read("#{GEM_ROOT}/lib/nexmo_markdown_renderer/views/code_snippets/list/plain.html.erb")
           html = ERB.new(erb).result(binding)
           "FREEZESTART#{Base64.urlsafe_encode64(html)}FREEZEEND"
         end

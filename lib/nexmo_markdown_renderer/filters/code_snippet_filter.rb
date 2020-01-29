@@ -67,7 +67,7 @@ module Nexmo
       end
     
       def generate_code_block(language, input, unindent)
-        filename = "#{Rails.root}/#{input['source']}"
+        filename = "#{ENV['DOCS_BASE_PATH']}/#{input['source']}"
         return '' unless input
         raise "CodeSnippetFilter - Could not load #{filename} for language #{language}" unless File.exist?(filename)
     

@@ -8,13 +8,19 @@ This gem facilitates the presentation of markdown documents in a Rails app by ap
 
 ## Installation and Usage
 
-To use this gem you must instal it in your application's Gemfile:
+To use this gem you must install it in your application's Gemfile:
 
 ```ruby
 gem 'nexmo-markdown-renderer'
 ```
 
 Then run `bundle install` to install it.
+
+The gem requires an environment variable to be set of `DOCS_BASE_PATH` that should point to the top level directory of your markdown content to be rendered. For example:
+
+```
+DOCS_BASE_PATH = '/path/to/markdown`
+```
 
 Once you have installed it, you can use it by instantiating an instance of it by passing in the options you require:
 
