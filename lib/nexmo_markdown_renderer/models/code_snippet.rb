@@ -17,7 +17,7 @@ module Nexmo
     
           frontmatter = YAML.safe_load(document)
     
-          CodeSnippet.new({
+          Nexmo::Markdown::CodeSnippet.new({
             title: frontmatter['title'],
             navigation_weight: frontmatter['navigation_weight'] || 999,
             product: product,

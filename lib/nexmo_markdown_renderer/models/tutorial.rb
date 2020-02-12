@@ -14,7 +14,7 @@ module Nexmo
         path = DocFinder.find(
           root: self.class.task_content_path,
           document: step_name,
-          language: I18n.locale
+          language: ::I18n.locale
         )
     
         File.read(path)
@@ -53,7 +53,7 @@ module Nexmo
         config = YAML.safe_load(File.read(document_path))
         current_product ||= config['products'].first
     
-        Tutorial.new({
+        Nexmo::Markdown::Tutorial.new({
           raw: config,
           name: name,
           current_step: current_step,

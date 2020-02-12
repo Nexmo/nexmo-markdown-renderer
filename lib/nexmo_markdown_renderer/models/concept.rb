@@ -39,7 +39,7 @@ class Concept
 
       frontmatter = YAML.safe_load(document)
 
-      Concept.new({
+      Nexmo::Markdown::Concept.new({
         title: frontmatter['title'],
         description: frontmatter['description'],
         navigation_weight: frontmatter['navigation_weight'] || 999,
