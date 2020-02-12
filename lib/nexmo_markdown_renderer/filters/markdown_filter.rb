@@ -25,7 +25,7 @@ module Nexmo
         })
       end
     end
-    
+
     class VoltaRender < HTML
       def initialize(options)
         @options = options
@@ -34,6 +34,7 @@ module Nexmo
     
       def paragraph(text)
         return text if @options[:skip_paragraph_surround]
+    
         "<p>#{text}</p>"
       end
     
@@ -77,3 +78,4 @@ module Nexmo
     end
   end
 end
+

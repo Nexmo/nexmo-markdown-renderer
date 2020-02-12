@@ -6,5 +6,6 @@ module Nexmo
         input.gsub(/\A(---.+?---)/mo, '')
       end
     end
+    
   end
 end

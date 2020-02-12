@@ -24,5 +24,6 @@ module Nexmo
         @document ||= Nokogiri::HTML::DocumentFragment.parse(@input)
       end
     end
+    
   end
 end

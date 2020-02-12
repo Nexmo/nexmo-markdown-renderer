@@ -4,7 +4,12 @@ module Nexmo
       def call(input)
         input.gsub(/```partial(.+?)```/m) do |_s|
           config = YAML.safe_load($1)
-          content = File.read(config['source'])
+          file_path = if config['source'].starts_with? 'app/views'
+                        config['source']
+                      else
+                        "#{ENV['DOCS_BASE_PATH']}/#{config['source']}"
+                      end
+          content = File.read(file_path)
     
           active = options[:code_language] ? options[:code_language].key == config['platform'] : false
     

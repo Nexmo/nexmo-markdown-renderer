@@ -42,5 +42,6 @@ module Nexmo
         12 / Integer(columns)
       end
     end
+    
   end
 end

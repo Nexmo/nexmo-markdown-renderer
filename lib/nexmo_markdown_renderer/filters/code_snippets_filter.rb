@@ -84,11 +84,12 @@ module Nexmo
     
       def validate_config
         return if @config && @config['source']
+    
         raise 'A source key must be present in this building_blocks config'
       end
     
       def content_from_source
-        source_path = "#{@config['source']}/*.yml"
+        source_path = "#{ENV['DOCS_BASE_PATH']}/#{@config['source']}/*.yml"
     
         files = Dir[source_path]
         raise "No .yml files found for #{@config['source']} code snippets" if files.empty?
@@ -164,5 +165,6 @@ module Nexmo
         contents[active_index][:active] = true
       end
     end
+    
   end
 end

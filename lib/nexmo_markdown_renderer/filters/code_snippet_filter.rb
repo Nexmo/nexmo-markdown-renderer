@@ -1,5 +1,3 @@
-require_relative '../services/code_snippet_renderer/base'
-
 module Nexmo
   module Markdown
     class CodeSnippetFilter < Banzai::Filter
@@ -8,9 +6,10 @@ module Nexmo
       def call(input)
         input.gsub(/```single_code_snippet(.+?)```/m) do |_s|
           config = YAML.safe_load($1)
+    
           @renderer = get_renderer(config['language'])
     
-          lexer = Nexmo::Markdown::CodeLanguage.find(config['language']).lexer
+          lexer = CodeLanguage.find(config['language']).lexer
           lang = config['title'].delete('.')
     
           application_html = generate_application_block(config['application'])
@@ -183,5 +182,6 @@ module Nexmo
         start_section + file_section + line_section
       end
     end
+    
   end
 end

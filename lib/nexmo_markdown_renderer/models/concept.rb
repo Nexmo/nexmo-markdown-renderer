@@ -1,7 +1,7 @@
 class Concept
   include ActiveModel::Model
 
-  ORIGIN = '_documentation'.freeze
+  ORIGIN = "#{ENV['DOCS_BASE_PATH']}/_documentation".freeze
 
   FILES = [
     Dir.glob("#{ORIGIN}/#{I18n.default_locale}/**/guides/**/*.md"),

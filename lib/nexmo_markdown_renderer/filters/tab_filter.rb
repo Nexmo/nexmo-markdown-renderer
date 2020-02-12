@@ -1,3 +1,4 @@
+require 'byebug'
 module Nexmo
   module Markdown
     class TabFilter < Banzai::Filter
@@ -8,8 +9,9 @@ module Nexmo
           @config = YAML.safe_load($3)
     
           if tabbed_folder?
-            raise "#{@config['source']} is not a directory" unless File.directory? @config['source']
-            @tabbed_config = YAML.safe_load(File.read("#{@config['source']}/.config.yml"))
+            raise "#{@config['source']} is not a directory" unless File.directory? "#{ENV['DOCS_BASE_PATH']}/#{@config['source']}"
+    
+            @tabbed_config = YAML.safe_load(File.read("#{ENV['DOCS_BASE_PATH']}/#{@config['source']}/.config.yml"))
             @path = @config['source']
             validate_folder_config
           else
@@ -134,11 +136,13 @@ module Nexmo
     
       def validate_config
         return if @config && (@config['source'] || @config['tabs'])
+    
         raise 'Source or tabs must be present in this tabbed_example config'
       end
     
       def validate_folder_config
         return if @tabbed_config && @tabbed_config['tabbed'] == true
+    
         raise 'Tabbed must be set to true in the folder config YAML file'
       end
     
@@ -149,8 +153,10 @@ module Nexmo
     
         files = Dir.glob(source_path)
         raise "Empty content_from_source file list in #{source_path}" if files.empty?
+    
         files.map do |content_path|
           raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
+    
           source = File.read(content_path)
     
           next generate_tabbed_code_examples(source, content_path) if tabbed_code_examples?
@@ -160,13 +166,15 @@ module Nexmo
       end
     
       def content_from_folder
-        source_path = @config['source']
+        source_path = "#{ENV['DOCS_BASE_PATH']}/#{@config['source']}"
         source_path += '/*.md'
     
         files = Dir.glob(source_path)
         raise "Empty content_from_source file list in #{source_path}" if files.empty?
+    
         files.map do |content_path|
           raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
+    
           source = File.read(content_path)
     
           generate_tabbed_content(source)
@@ -175,8 +183,9 @@ module Nexmo
     
       def content_from_tabs
         @config['tabs'].map do |title, config|
-          raise "Could not find content_from_tabs file: #{config['source']}" unless File.exist? config['source']
-          source = File.read(config['source'])
+          raise "Could not find content_from_tabs file: #{ENV['DOCS_BASE_PATH']}/#{@config['source']}" unless File.exist? "#{ENV['DOCS_BASE_PATH']}/#{@config['source']}"
+    
+          source = File.read("#{ENV['DOCS_BASE_PATH']}/#{@config['source']}")
     
           config.symbolize_keys.merge({
             id: SecureRandom.hex,
@@ -262,7 +271,9 @@ module Nexmo
       def sort_contents(contents)
         contents.sort_by do |content|
           next content[:language].weight if content[:language]
+    
           next content[:frontmatter]['menu_weight'] || 999 if content[:frontmatter]
+    
           999
         end
       end

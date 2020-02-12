@@ -11,7 +11,7 @@ module Nexmo
         end
     
         modals = modals.map do |modal|
-          filename = "#{modal[:document]}"
+          filename = "#{ENV['DOCS_BASE_PATH']}/#{modal[:document]}"
           raise "Could not find modal #{filename}" unless File.exist? filename
     
           document = File.read(filename)

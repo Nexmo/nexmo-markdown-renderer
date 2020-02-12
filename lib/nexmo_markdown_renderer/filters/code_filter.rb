@@ -5,6 +5,11 @@ module Nexmo
         input.gsub(/(?!.*snippet)```code(.+?)```/m) do |_s|
           config = YAML.safe_load($1)
     
+          if config['config']
+            configs = YAML.load_file("#{ENV['DOCS_BASE_PATH']}/config/code_examples.yml")
+            config = config['config'].split('.').inject(configs) { |h, k| h[k] }
+          end
+    
           code = File.read("#{ENV['DOCS_BASE_PATH']}/#{config['source']}")
           language = File.extname("#{ENV['DOCS_BASE_PATH']}/#{config['source']}")[1..-1]
           lexer = language_to_lexer(language)
@@ -44,6 +49,7 @@ module Nexmo
       def language_to_lexer(language)
         language = language_to_lexer_name(language)
         return Rouge::Lexers::PHP.new({ start_inline: true }) if language == 'php'
+    
         Rouge::Lexer.find(language.downcase) || Rouge::Lexer.find('text')
       end
     
@@ -51,5 +57,6 @@ module Nexmo
         @language_configuration ||= YAML.load_file("#{GEM_ROOT}/config/code_languages.yml")
       end
     end
+    
   end
 end

@@ -5,5 +5,6 @@ module Nexmo
         input.gsub('§', '<br>')
       end
     end
+    
   end
 end

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Nexmo::Markdown::CodeSnippetsFilter do
+  before(:each) do
+    allow(ENV).to receive(:[]).with('DOCS_BASE_PATH').and_return('.')
+  end
+
   it 'returns unaltered input if input is not matching' do
     input = 'hello'
 
@@ -17,7 +21,7 @@ RSpec.describe Nexmo::Markdown::CodeSnippetsFilter do
 
     input = <<~HEREDOC
       ```code_snippets
-      source: './spec/filters/fixtures/examples/send-an-sms'
+      source: 'spec/filters/fixtures/examples/send-an-sms'
       ```
     HEREDOC
 
