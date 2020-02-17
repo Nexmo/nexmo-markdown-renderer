@@ -14,6 +14,19 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.before(:each) do
+    ENV['DOCS_BASE_PATH'] = 'spec/fixtures'
+    @original_dictionary = DocFinder.dictionary
+    DocFinder.configure do |config|
+      config.paths << 'spec/fixtures/config/tutorials'
+      config.paths << 'spec/fixtures/_tutorials'
+      config.paths << 'spec/fixtures/_documentation'
+      config.paths << 'spec/fixtures/_use_cases'
+    end
+  end
+  config.after(:each) do
+    DocFinder.dictionary = @original_dictionary
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
