@@ -10,9 +10,9 @@ module Nexmo
     
           if config['product']
             @product = config['product']
-            @concepts = Concept.by_product(@product, @options[:language])
+            @concepts = Nexmo::Markdown::Concept.by_product(@product, @options[:language])
           elsif config['concepts']
-            @concepts = Concept.by_name(config['concepts'], @options[:language])
+            @concepts = Nexmo::Markdown::Concept.by_name(config['concepts'], @options[:language])
           end
     
           @concepts.reject!(&:ignore_in_list)

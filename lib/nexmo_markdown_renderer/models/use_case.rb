@@ -10,7 +10,7 @@ module Nexmo
     
       def path
         return external_link if external_link
-        path = document_path.relative_path_from(UseCase.origin).sub("#{I18n.locale}/", '')
+        path = document_path.relative_path_from(Nexmo::Markdown::UseCase.origin).sub("#{::I18n.locale}/", '')
         "/use-cases/#{path}".gsub('.md', '')
       end
     

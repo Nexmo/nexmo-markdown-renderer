@@ -5,7 +5,7 @@ module Nexmo
         input.gsub(/```use_cases(.+?)```/m) do |_s|
           config = YAML.safe_load($1)
           @product = config['product']
-          @use_cases = UseCase.by_product(@product)
+          @use_cases = Nexmo::Markdown::UseCase.by_product(@product)
     
           # Default to plain layout, but allow people to override it
           config['layout'] = 'list/plain' unless config['layout']

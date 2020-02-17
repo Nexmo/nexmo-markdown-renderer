@@ -19,7 +19,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   it 'renders 0 products returned as an unordered list' do
-    allow(Concept).to receive(:all).and_return([])
+    allow(Nexmo::Markdown::Concept).to receive(:all).and_return([])
 
     input = <<~HEREDOC
       ```concept_list
@@ -35,7 +35,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   it 'renders 1 product returned as an unordered list' do
-    allow(Concept).to receive(:all).and_return([first_mock_concept])
+    allow(Nexmo::Markdown::Concept).to receive(:all).and_return([first_mock_concept])
 
     input = <<~HEREDOC
       ```concept_list
@@ -51,7 +51,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   it 'renders 2 products returned as an unordered list' do
-    allow(Concept).to receive(:all).and_return([first_mock_concept, second_mock_concept])
+    allow(Nexmo::Markdown::Concept).to receive(:all).and_return([first_mock_concept, second_mock_concept])
 
     input = <<~HEREDOC
       ```concept_list
@@ -67,7 +67,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   it 'respects ignore_in_list' do
-    allow(Concept).to receive(:all).and_return([first_mock_concept, ignore_in_list_concept])
+    allow(Nexmo::Markdown::Concept).to receive(:all).and_return([first_mock_concept, ignore_in_list_concept])
 
     input = <<~HEREDOC
       ```concept_list
@@ -83,7 +83,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   it 'returns an empty string if only concepts with ignore_in_list are returned' do
-    allow(Concept).to receive(:all).and_return([ignore_in_list_concept])
+    allow(Nexmo::Markdown::Concept).to receive(:all).and_return([ignore_in_list_concept])
 
     input = <<~HEREDOC
       ```concept_list
@@ -99,7 +99,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   it 'returns all matching keys when provided via concepts' do
-    allow(Concept).to receive(:all).and_return([first_mock_concept, second_mock_concept])
+    allow(Nexmo::Markdown::Concept).to receive(:all).and_return([first_mock_concept, second_mock_concept])
     input = <<~HEREDOC
       ```concept_list
       concepts:
@@ -116,7 +116,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   it 'ignores any matching concepts that are not provided in the concepts key' do
-    allow(Concept).to receive(:all).and_return([first_mock_concept, second_mock_concept])
+    allow(Nexmo::Markdown::Concept).to receive(:all).and_return([first_mock_concept, second_mock_concept])
     input = <<~HEREDOC
       ```concept_list
       concepts:
@@ -132,7 +132,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   it 'raises an error if concepts that do not exist are provided' do
-    allow(Concept).to receive(:all).and_return([])
+    allow(Nexmo::Markdown::Concept).to receive(:all).and_return([])
     input = <<~HEREDOC
       ```concept_list
       concepts:
@@ -146,7 +146,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   private
 
   def first_mock_concept
-    Concept.new(
+    Nexmo::Markdown::Concept.new(
       title: 'Test Concept',
       product: 'messaging/sms',
       description: 'This is a demo concept',
@@ -158,7 +158,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   def second_mock_concept
-    Concept.new(
+    Nexmo::Markdown::Concept.new(
       title: 'Another Concept',
       product: 'messaging/sms',
       description: 'This is a second demo concept',
@@ -170,7 +170,7 @@ RSpec.describe Nexmo::Markdown::ConceptListFilter do
   end
 
   def ignore_in_list_concept
-    Concept.new(
+    Nexmo::Markdown::Concept.new(
       title: 'Hidden Concept',
       product: 'messaging/sms',
       description: 'This is a hidden concept',

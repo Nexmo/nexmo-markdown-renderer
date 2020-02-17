@@ -47,7 +47,7 @@ module Nexmo
         document_path = DocFinder.find(
           root: 'config/tutorials',
           document: name,
-          language: I18n.default_locale,
+          language: ::I18n.default_locale,
           format: 'yml'
         )
         config = YAML.safe_load(File.read(document_path))
@@ -73,7 +73,7 @@ module Nexmo
           t_path = DocFinder.find(
             root: task_content_path,
             document: t,
-            language: I18n.locale
+            language: ::I18n.locale
           )
           raise "Prerequisite not found: #{t}" unless File.exist? t_path
     
@@ -96,7 +96,7 @@ module Nexmo
           t_path = DocFinder.find(
             root: task_content_path,
             document: t,
-            language: I18n.locale
+            language: ::I18n.locale
           )
           raise "Subtask not found: #{t}" unless File.exist? t_path
     
