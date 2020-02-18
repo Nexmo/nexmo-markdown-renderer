@@ -17,12 +17,12 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{config}/**/*", "{lib}/**/*", "LICENSE.txt", "README.md"]
 
   spec.add_runtime_dependency('banzai', '~> 0.1.2')
-  spec.add_runtime_dependency('octicons_helper', '~> 9.3')
+  spec.add_runtime_dependency('octicons_helper', '~> 8.2')
   spec.add_runtime_dependency('nokogiri', '~> 1.10')
-  spec.add_runtime_dependency('redcarpet', '~> 3.5')
-  spec.add_runtime_dependency('rouge', '~> 3.15')
+  spec.add_runtime_dependency('redcarpet', '~> 3.4')
+  spec.add_runtime_dependency('rouge', '~> 2.0.7')
   spec.add_runtime_dependency('activemodel', '~> 6.0')
-  spec.add_runtime_dependency('i18n', '~> 0.9')
+  spec.add_runtime_dependency('i18n', '~> 1.7')
   spec.add_development_dependency('simplecov', '~> 0.16')
   spec.add_development_dependency('coveralls', '~> 0.8.15')
   spec.add_development_dependency('rspec', '~> 3.9')

@@ -1,4 +1,3 @@
-require 'byebug'
 module Nexmo
   module Markdown
     class TabFilter < Banzai::Filter
