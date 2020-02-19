@@ -9,7 +9,7 @@ module Nexmo
     
           @renderer = get_renderer(config['language'])
     
-          lexer = CodeLanguage.find(config['language']).lexer
+          lexer = Nexmo::Markdown::CodeLanguage.find(config['language']).lexer
           lang = config['title'].delete('.')
     
           application_html = generate_application_block(config['application'])
