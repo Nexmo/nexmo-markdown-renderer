@@ -17,7 +17,7 @@ RSpec.describe Nexmo::Markdown::CodeSnippetsFilter do
 
   it 'creates correct html output with correct input' do
     expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
-    allow_any_instance_of(Nexmo::Markdown::CodeSnippetsFilter).to receive(:render_single_snippet).and_return('')
+    allow_any_instance_of(described_class).to receive(:render_single_snippet).and_return('')
 
     input = <<~HEREDOC
       ```code_snippets

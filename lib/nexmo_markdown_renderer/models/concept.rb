@@ -75,7 +75,7 @@ module Nexmo
       def self.files(language)
         FILES.each_with_object([]) do |file, array|
           document = file.gsub("#{ORIGIN}/#{::I18n.default_locale}/", '')
-          array << DocFinder.find(root: ORIGIN, document: document, language: language)
+          array << Nexmo::Markdown::DocFinder.find(root: ORIGIN, document: document, language: language)
         end
       end
     end

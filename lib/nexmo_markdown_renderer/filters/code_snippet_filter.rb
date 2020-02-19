@@ -89,29 +89,29 @@ module Nexmo
         language = 'dotnet' if language == 'csharp'
         case language
         when 'curl'
-          CodeSnippetRenderer::Curl
+          Nexmo::Markdown::CodeSnippetRenderer::Curl
         when 'node'
-          CodeSnippetRenderer::Javascript
+          Nexmo::Markdown::CodeSnippetRenderer::Javascript
         when 'javascript'
-          CodeSnippetRenderer::Javascript
+          Nexmo::Markdown::CodeSnippetRenderer::Javascript
         when 'java'
-          CodeSnippetRenderer::Java
+          Nexmo::Markdown::CodeSnippetRenderer::Java
         when 'dotnet'
-          CodeSnippetRenderer::Dotnet
+          Nexmo::Markdown::CodeSnippetRenderer::Dotnet
         when 'python'
-          CodeSnippetRenderer::Python
+          Nexmo::Markdown::CodeSnippetRenderer::Python
         when 'ruby'
-          CodeSnippetRenderer::Ruby
+          Nexmo::Markdown::CodeSnippetRenderer::Ruby
         when 'php'
-          CodeSnippetRenderer::Php
+          Nexmo::Markdown::CodeSnippetRenderer::Php
         when 'android'
-          CodeSnippetRenderer::Android
+          Nexmo::Markdown::CodeSnippetRenderer::Android
         when 'kotlin'
-          CodeSnippetRenderer::Kotlin
+          Nexmo::Markdown::CodeSnippetRenderer::Kotlin
         when 'objective_c'
-          CodeSnippetRenderer::ObjectiveC
+          Nexmo::Markdown::CodeSnippetRenderer::ObjectiveC
         when 'swift'
-          CodeSnippetRenderer::Swift
+          Nexmo::Markdown::CodeSnippetRenderer::Swift
         else
           raise "Unknown language: #{language}"
         end

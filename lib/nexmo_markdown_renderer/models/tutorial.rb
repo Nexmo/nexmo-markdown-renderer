@@ -11,7 +11,7 @@ module Nexmo
           return raw[step_name]['content']
         end
     
-        path = DocFinder.find(
+        path = Nexmo::Markdown::DocFinder.find(
           root: self.class.task_content_path,
           document: step_name,
           language: ::I18n.locale
@@ -44,7 +44,7 @@ module Nexmo
       end
     
       def self.load(name, current_step, current_product = nil)
-        document_path = DocFinder.find(
+        document_path = Nexmo::Markdown::DocFinder.find(
           root: 'config/tutorials',
           document: name,
           language: ::I18n.default_locale,
@@ -70,7 +70,7 @@ module Nexmo
         return [] unless prerequisites
     
         prerequisites.map do |t|
-          t_path = DocFinder.find(
+          t_path = Nexmo::Markdown::DocFinder.find(
             root: task_content_path,
             document: t,
             language: ::I18n.locale
@@ -93,7 +93,7 @@ module Nexmo
         tasks ||= []
     
         tasks = tasks.map do |t|
-          t_path = DocFinder.find(
+          t_path = Nexmo::Markdown::DocFinder.find(
             root: task_content_path,
             document: t,
             language: ::I18n.locale

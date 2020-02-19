@@ -51,8 +51,8 @@ RSpec.describe Nexmo::Markdown::Concept, type: :model do
       stub_const("#{described_class}::ORIGIN", "#{ENV['DOCS_BASE_PATH']}/path/to/_documentation")
       stub_const("#{described_class}::FILES", ['guide', 'concept'])
 
-      expect(DocFinder).to receive(:find).with(root: described_class::ORIGIN, document: 'guide', language: language).and_return('guide')
-      expect(DocFinder).to receive(:find).with(root: described_class::ORIGIN, document: 'concept', language: language).and_return('concept')
+      expect(Nexmo::Markdown::DocFinder).to receive(:find).with(root: described_class::ORIGIN, document: 'guide', language: language).and_return('guide')
+      expect(Nexmo::Markdown::DocFinder).to receive(:find).with(root: described_class::ORIGIN, document: 'concept', language: language).and_return('concept')
 
       expect(described_class.files(language)).to eq(['guide', 'concept'])
     end
