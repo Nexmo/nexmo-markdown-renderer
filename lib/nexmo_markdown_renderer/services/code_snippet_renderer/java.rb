@@ -5,7 +5,7 @@ module Nexmo
         def self.dependencies(deps)
           {
             'text' => t('services.code_snippet_renderer.add_instructions_to_file', file: 'build.gradle'),
-            'code' => deps.map { |d| "compile '#{d.gsub('@latest', '5.1.0')}'" }.join('<br />'),
+            'code' => deps.map { |d| "compile '#{d.gsub('@latest', '5.2.1')}'" }.join('<br />'),
             'type' => 'groovy',
           }
         end
