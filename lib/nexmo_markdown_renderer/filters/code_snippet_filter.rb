@@ -71,7 +71,7 @@ module Nexmo
         raise "CodeSnippetFilter - Could not load #{filename} for language #{language}" unless File.exist?(filename)
     
         code = File.read(filename)
-        lexer = CodeLanguage.find(language).lexer
+        lexer = Nexmo::Markdown::CodeLanguage.find(language).lexer
     
         total_lines = code.lines.count
     
