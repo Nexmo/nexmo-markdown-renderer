@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::PartialFilter do
   it 'renders input as HTML with config["platform"] set to true' do

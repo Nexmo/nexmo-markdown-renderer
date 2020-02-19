@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::InlineEscapeFilter do
   it 'renders a code block when the code is put in between a set of `` characters' do

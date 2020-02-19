@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::Concept, type: :model do
   describe '#extract_product' do

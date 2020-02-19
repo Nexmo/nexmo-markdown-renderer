@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::BreakFilter do
   it 'turns § symbol into a break HTML tag' do

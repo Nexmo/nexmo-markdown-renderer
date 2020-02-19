@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::UseCaseListFilter do
   it 'returns an instance of Tutorial with matching input' do

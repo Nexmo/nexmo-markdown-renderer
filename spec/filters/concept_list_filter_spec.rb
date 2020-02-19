@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::ConceptListFilter do
   it 'raises an exception when invalid YAML is provided' do

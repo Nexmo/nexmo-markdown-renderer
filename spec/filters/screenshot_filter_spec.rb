@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::ScreenshotFilter do
   it 'renders image markdown if image location is present in input' do

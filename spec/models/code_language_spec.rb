@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::CodeLanguage, type: :model do
   let(:language) { Nexmo::Markdown::CodeLanguage.new }

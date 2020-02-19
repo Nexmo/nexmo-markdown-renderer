@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::CollapsibleFilter do
   it 'returns input unaltered if it does not match filter' do

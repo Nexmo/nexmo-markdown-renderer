@@ -13,6 +13,11 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'rspec/snapshot'
+require 'rspec/collection_matchers'
+require 'rspec/expectations'
+require_relative '../lib/nexmo_markdown_renderer'
+
 RSpec.configure do |config|
   config.before(:each) do
     ENV['DOCS_BASE_PATH'] = 'spec/fixtures'

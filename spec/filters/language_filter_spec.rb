@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::LanguageFilter do
   it 'does nothing to text that does not match the regex' do

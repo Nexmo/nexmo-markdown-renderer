@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::PhpInlinerFilter do
   it 'adds "?start_inline=1" to regex matching input' do
