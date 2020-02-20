@@ -1,6 +1,6 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe JsSequenceDiagramFilter do
+RSpec.describe Nexmo::Markdown::JsSequenceDiagramFilter do
   it 'formats text in between three ``` and "js_sequence_diagram"' do
     input = <<~HEREDOC
       ```js_sequence_diagram

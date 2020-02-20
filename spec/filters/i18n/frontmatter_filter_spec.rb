@@ -1,6 +1,6 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe I18n::FrontmatterFilter do
+RSpec.describe Nexmo::Markdown::I18n::FrontmatterFilter do
   let(:frontmatter) do
     <<~FRONTMATTER
       ---

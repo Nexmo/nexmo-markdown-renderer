@@ -1,6 +1,10 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe CodeSnippetsFilter do
+RSpec.describe Nexmo::Markdown::CodeSnippetsFilter do
+  before(:each) do
+    allow(ENV).to receive(:[]).with('DOCS_BASE_PATH').and_return('.')
+  end
+
   it 'returns unaltered input if input is not matching' do
     input = 'hello'
 
@@ -13,11 +17,11 @@ RSpec.describe CodeSnippetsFilter do
 
   it 'creates correct html output with correct input' do
     expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
-    allow_any_instance_of(CodeSnippetsFilter).to receive(:render_single_snippet).and_return('')
+    allow_any_instance_of(described_class).to receive(:render_single_snippet).and_return('')
 
     input = <<~HEREDOC
       ```code_snippets
-      source: './spec/filters/fixtures/examples/send-an-sms'
+      source: 'spec/filters/fixtures/examples/send-an-sms'
       ```
     HEREDOC
 

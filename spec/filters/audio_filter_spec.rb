@@ -1,6 +1,6 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe AudioFilter do
+RSpec.describe Nexmo::Markdown::AudioFilter do
   it 'turns audio links into audio player' do
     input = <<~HEREDOC
       🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/01-hola.mp3]

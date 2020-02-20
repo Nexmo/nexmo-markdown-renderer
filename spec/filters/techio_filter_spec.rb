@@ -1,6 +1,6 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe TechioFilter do
+RSpec.describe Nexmo::Markdown::TechioFilter do
   it 'returns whitespace with whitespace input' do
     input = ' '
 

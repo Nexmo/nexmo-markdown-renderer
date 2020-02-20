@@ -1,6 +1,6 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe IndentFilter do
+RSpec.describe Nexmo::Markdown::IndentFilter do
   it 'turns four whitespaces followed by "->" into indented text' do
     input = '    -> a'
 

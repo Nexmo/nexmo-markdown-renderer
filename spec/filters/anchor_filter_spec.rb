@@ -1,6 +1,6 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe AnchorFilter do
+RSpec.describe Nexmo::Markdown::AnchorFilter do
   it 'turns explicit anchor links into anchor tag' do
     input = <<~HEREDOC
       ⚓️ This is a test

@@ -1,8 +1,8 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe UseCaseListFilter do
+RSpec.describe Nexmo::Markdown::UseCaseListFilter do
   it 'returns an instance of Tutorial with matching input' do
-    allow(UseCase).to receive(:all).and_return([mock_tutorial])
+    allow(Nexmo::Markdown::UseCase).to receive(:all).and_return([mock_tutorial])
 
     input = <<~HEREDOC
       ```use_cases
@@ -38,7 +38,7 @@ RSpec.describe UseCaseListFilter do
   end
 
   it 'returns encoded string even if product cannot be found' do
-    allow(UseCase).to receive(:all).and_return([mock_tutorial])
+    allow(Nexmo::Markdown::UseCase).to receive(:all).and_return([mock_tutorial])
 
     input = <<~HEREDOC
       ```use_cases
@@ -54,7 +54,7 @@ RSpec.describe UseCaseListFilter do
     private
 
   def mock_tutorial
-    UseCase.new(
+    Nexmo::Markdown::UseCase.new(
       title: 'Test Tutorial',
       products: 'messaging/sms',
       description: 'This is a demo tutorial',
