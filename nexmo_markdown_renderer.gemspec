@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('rspec-collection_matchers')
   spec.add_development_dependency('rspec-snapshot', '~> 0.1.2')
   spec.add_development_dependency('byebug')
+  spec.add_development_dependency('rake')
 
   spec.metadata = {
     'homepage' => 'https://github.com/Nexmo/nexmo-markdown-renderer',
