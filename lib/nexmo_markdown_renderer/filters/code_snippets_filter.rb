@@ -25,7 +25,7 @@ module Nexmo
         end
     
         tab_link = Nokogiri::XML::Element.new 'a', @document
-        tab_link.inner_html = "<svg><use xlink:href=\"#{GEM_ROOT}/lib/nexmo_markdown_renderer/assets/images/brands/#{content['icon']}.svg##{content['icon']}\" /></svg><span>" + content['title'] + '</span>'
+        tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content['icon']}.svg##{content['icon']}\" /></svg><span>" + content['title'] + '</span>'
         tab_link['class'] = 'tab-link'
     
         tab.add_child(tab_link)
