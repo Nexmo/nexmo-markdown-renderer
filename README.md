@@ -47,8 +47,8 @@ rendered = content.call("/_documentation/example/example_markdown.md")
 
 ## Contributing
 
-We ❤️ contributions from everyone! [Bug reports](https://github.com/Nexmo/nexmo-markd0wn-renderer/issues), [bug fixes](https://github.com/Nexmo/nexmo-markd0wn-renderer/pulls) and feedback on the gem is always appreciated. Look at the [Contributor Guidelines](https://github.com/Nexmo/nexmo-markd0wn-renderer/blob/master/CONTRIBUTING.md) for more information.
+We ❤️ contributions from everyone! [Bug reports](https://github.com/Nexmo/nexmo-markdown-renderer/issues), [bug fixes](https://github.com/Nexmo/nexmo-markdown-renderer/pulls) and feedback on the gem is always appreciated. Look at the [Contributor Guidelines](https://github.com/Nexmo/nexmo-markdown-renderer/blob/master/CONTRIBUTING.md) for more information.
 
 ## License
 
-This project is under the [MIT LICENSE](https://github.com/Nexmo/nexmo-markdown-renderer/blob/master/LICENSE)
+This project is under the [MIT LICENSE](https://github.com/Nexmo/nexmo-markdown-renderer/blob/master/LICENSE.txt)
