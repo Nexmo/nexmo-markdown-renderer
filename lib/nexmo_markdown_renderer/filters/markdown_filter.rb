@@ -39,7 +39,7 @@ module Nexmo
       end
     
       def table(header, body)
-        '<div class="Vlt-table Vlt-table--data Vlt-table--bordered">' \
+        '<div class="Vlt-table Vlt-table--bordered">' \
         '<table>' \
           "<thead>#{header}</thead>" \
           "<tbody>#{body}</tbody>" \
