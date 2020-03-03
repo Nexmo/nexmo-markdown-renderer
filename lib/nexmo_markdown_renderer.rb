@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 GEM_ROOT = File.expand_path("../..", __FILE__)
+DOCS_BASE_PATH = (defined?(Rails) && Rails.configuration.docs_base_path) ? Rails.configuration.docs_base_path : '.'
 require 'banzai'
 require 'octicons_helper'
 require 'nokogiri'

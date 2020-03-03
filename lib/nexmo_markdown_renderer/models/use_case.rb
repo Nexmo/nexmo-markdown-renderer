@@ -50,7 +50,7 @@ module Nexmo
       end
     
       def self.origin
-        Pathname.new("#{ENV['DOCS_BASE_PATH']}/_use_cases")
+        Pathname.new("#{DOCS_BASE_PATH}/_use_cases")
       end
     
       def self.all

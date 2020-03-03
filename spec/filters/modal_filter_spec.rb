@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::ModalFilter do
-  before(:each) do
-    allow(ENV).to receive(:[]).with('DOCS_BASE_PATH').and_return('.')
-  end
   it 'takes input of title and markdown link and produces HTML content' do
     allow(SecureRandom).to receive(:hex).and_return('12345')
     input = '@[Possible values](spec/filters/fixtures/modals/api/developer/message/search/response/final-status.md)'

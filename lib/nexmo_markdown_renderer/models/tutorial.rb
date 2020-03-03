@@ -140,7 +140,7 @@ module Nexmo
       end
     
       def self.task_content_path
-        "#{ENV['DOCS_BASE_PATH']}/_tutorials"
+        "#{DOCS_BASE_PATH}/_tutorials"
       end
     end
     

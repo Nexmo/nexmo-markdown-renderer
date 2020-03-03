@@ -3,7 +3,7 @@ module Nexmo
     class Concept
       include ActiveModel::Model
     
-      ORIGIN = "#{ENV['DOCS_BASE_PATH']}/_documentation".freeze
+      ORIGIN = "#{DOCS_BASE_PATH}/_documentation".freeze
     
       FILES = [
         Dir.glob("#{ORIGIN}/#{::I18n.default_locale}/**/guides/**/*.md"),

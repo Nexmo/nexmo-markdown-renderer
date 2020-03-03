@@ -64,7 +64,7 @@ module Nexmo
       end
     
       def self.origin
-        "#{ENV['DOCS_BASE_PATH']}/_documentation"
+        "#{DOCS_BASE_PATH}/_documentation"
       end
     end
     
