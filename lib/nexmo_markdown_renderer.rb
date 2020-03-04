@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 GEM_ROOT = File.expand_path("../..", __FILE__)
-if (defined?(Rails) && Rails.configuration.docs_base_path)
-  DOCS_BASE_PATH = Rails.configuration.docs_base_path
-elsif ENV['DOCS_BASE_PATH']
-  DOCS_BASE_PATH = ENV['DOCS_BASE_PATH']
-else
-  DOCS_BASE_PATH = '.'
-end
+DOCS_BASE_PATH  = defined?(Rails) && Rails.configuration.docs_base_path || ENV.fetch('DOCS_BASE_PATH', '.')
 require 'banzai'
 require 'octicons_helper'
 require 'nokogiri'
