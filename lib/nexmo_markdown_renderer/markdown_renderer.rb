@@ -30,14 +30,15 @@ module Nexmo
           LanguageFilter,
           ColumnsFilter,
           MarkdownFilter.new(options),
-    
+
           # As HTML
           HeadingFilter,
           LabelFilter.new(options),
           BreakFilter,
           UnfreezeFilter,
           IconFilter,
-          ExternalLinkFilter
+          ExternalLinkFilter,
+          RelativeLinkFilter.new(options)
         )
       end
 

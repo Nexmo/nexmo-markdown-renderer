@@ -1,6 +1,17 @@
 require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::UseCaseListFilter do
+  let(:mock_tutorial) do
+    Nexmo::Markdown::UseCase.new(
+      title: 'Test Tutorial',
+      products: 'messaging/sms',
+      description: 'This is a demo tutorial',
+      document_path: Pathname.new("#{ENV['DOCS_BASE_PATH']}/_use_cases/path/to/test-tutorial.md"),
+      external_link: '/path/to/test-tutorial',
+      languages: 'en'
+    )
+  end
+
   it 'returns an instance of Tutorial with matching input' do
     allow(Nexmo::Markdown::UseCase).to receive(:all).and_return([mock_tutorial])
 
@@ -49,18 +60,5 @@ RSpec.describe Nexmo::Markdown::UseCaseListFilter do
     expected_output = "FREEZESTARTPHVsIGNsYXNzPSJWbHQtbGlzdCBWbHQtbGlzdC0tc2ltcGxlIj4KICAKPC91bD4KFREEZEEND\n"
 
     expect(described_class.call(input)).to eql(expected_output)
-  end
-
-    private
-
-  def mock_tutorial
-    Nexmo::Markdown::UseCase.new(
-      title: 'Test Tutorial',
-      products: 'messaging/sms',
-      description: 'This is a demo tutorial',
-      document_path: '/path/to/test-tutorial.md',
-      external_link: '/path/to/test-tutorial',
-      languages: 'en'
-    )
   end
 end

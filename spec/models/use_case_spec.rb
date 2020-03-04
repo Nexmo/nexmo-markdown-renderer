@@ -49,4 +49,10 @@ RSpec.describe Nexmo::Markdown::UseCase, type: :model do
       expect(described_class.all[0].path).to start_with('/use-cases/')
     end
   end
+
+  describe '#relative_path' do
+    it 'returns a relative path' do
+      expect(described_class.all[0].relative_path).not_to start_with('/use-cases/')
+    end
+  end
 end
