@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 GEM_ROOT = File.expand_path("../..", __FILE__)
-DOCS_BASE_PATH  = defined?(Rails) && Rails.configuration.docs_base_path || ENV.fetch('DOCS_BASE_PATH', '.')
 require 'banzai'
 require 'octicons_helper'
 require 'nokogiri'
 require 'open-uri'
 require 'active_model'
 require 'i18n'
+require_relative 'nexmo_markdown_renderer/config/load_config'
 require_relative 'nexmo_markdown_renderer/initializers/redcarpet'
 require_relative 'nexmo_markdown_renderer/initializers/i18n'
 require_relative 'nexmo_markdown_renderer/core_ext/string'

@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::UseCase, type: :model do
-  before :each do
-    DOCS_BASE_PATH = 'spec/fixtures'
-  end
   describe '.all' do
     it 'returns an array of Tutorials' do
       tutorials = described_class.all

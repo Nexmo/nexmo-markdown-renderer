@@ -74,7 +74,7 @@ RSpec.describe Nexmo::Markdown::CodeSnippet, type: :model do
 
   describe '#origin' do
     it 'returns the correct origin' do
-      expect(Nexmo::Markdown::CodeSnippet.origin).to eq("#{DOCS_BASE_PATH}/_documentation")
+      expect(Nexmo::Markdown::CodeSnippet.origin).to eq("#{Nexmo::Markdown::Config.docs_base_path}/_documentation")
     end
   end
 

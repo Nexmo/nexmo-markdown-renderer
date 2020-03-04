@@ -1,5 +1,5 @@
 Nexmo::Markdown::DocFinder.configure do |config|
-  config.paths << "#{DOCS_BASE_PATH}/_documentation"
-  config.paths << "#{DOCS_BASE_PATH}/_use_cases"
-  config.paths << "#{DOCS_BASE_PATH}/_tutorials"
+  config.paths << "#{Nexmo::Markdown::Config.docs_base_path}/_documentation"
+  config.paths << "#{Nexmo::Markdown::Config.docs_base_path}/_use_cases"
+  config.paths << "#{Nexmo::Markdown::Config.docs_base_path}/_tutorials"
 end

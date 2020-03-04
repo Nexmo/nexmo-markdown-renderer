@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe Nexmo::Markdown::Concept, type: :model do
   describe '#extract_product' do
     it 'extracts voice successfully' do
-      stub_const("#{described_class}::ORIGIN", "#{DOCS_BASE_PATH}/path/to/_documentation")
+      stub_const("#{described_class}::ORIGIN", "#{Nexmo::Markdown::Config.docs_base_path}/path/to/_documentation")
       expect(described_class.extract_product("#{described_class::ORIGIN}/en/voice/voice-api/guides/demo.md")).to eq('voice/voice-api')
     end
 
     it 'extracts sms successfully' do
-      stub_const("#{described_class}::ORIGIN", "#{DOCS_BASE_PATH}/path/to/_documentation")
+      stub_const("#{described_class}::ORIGIN", "#{Nexmo::Markdown::Config.docs_base_path}/path/to/_documentation")
       expect(described_class.extract_product("#{described_class::ORIGIN}/en/messaging/sms/guides/demo.md")).to eq('messaging/sms')
     end
   end
@@ -48,7 +48,7 @@ RSpec.describe Nexmo::Markdown::Concept, type: :model do
     let(:language) { 'en' }
 
     it 'has the correct glob pattern' do
-      stub_const("#{described_class}::ORIGIN", "#{DOCS_BASE_PATH}/path/to/_documentation")
+      stub_const("#{described_class}::ORIGIN", "#{Nexmo::Markdown::Config.docs_base_path}/path/to/_documentation")
       stub_const("#{described_class}::FILES", ['guide', 'concept'])
 
       expect(Nexmo::Markdown::DocFinder).to receive(:find).with(root: described_class::ORIGIN, document: 'guide', language: language).and_return('guide')
@@ -99,7 +99,7 @@ def stub_available_concepts
   }.each do |title, details|
     i += 1
     slug = title.parameterize
-    path = "#{DOCS_BASE_PATH}/path/to/_documentation/en/#{details['product']}/#{details['folder']}/#{slug}.md"
+    path = "#{Nexmo::Markdown::Config.docs_base_path}/path/to/_documentation/en/#{details['product']}/#{details['folder']}/#{slug}.md"
     paths.push(path)
 
     allow(File).to receive(:read).with(path) .and_return(
@@ -112,6 +112,6 @@ def stub_available_concepts
     )
   end
 
-  stub_const("#{described_class}::ORIGIN", "#{DOCS_BASE_PATH}/path/to/_documentation")
+  stub_const("#{described_class}::ORIGIN", "#{Nexmo::Markdown::Config.docs_base_path}/path/to/_documentation")
   allow(described_class).to receive(:files).and_return(paths)
 end

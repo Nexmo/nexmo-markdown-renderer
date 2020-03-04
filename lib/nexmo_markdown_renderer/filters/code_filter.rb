@@ -6,12 +6,12 @@ module Nexmo
           config = YAML.safe_load($1)
     
           if config['config']
-            configs = YAML.load_file("#{DOCS_BASE_PATH}/config/code_examples.yml")
+            configs = YAML.load_file("#{Nexmo::Markdown::Config.Nexmo::Markdown::Config.docs_base_path}/config/code_examples.yml")
             config = config['config'].split('.').inject(configs) { |h, k| h[k] }
           end
     
-          code = File.read("#{DOCS_BASE_PATH}/#{config['source']}")
-          language = File.extname("#{DOCS_BASE_PATH}/#{config['source']}")[1..-1]
+          code = File.read("#{Nexmo::Markdown::Config.Nexmo::Markdown::Config.docs_base_path}/#{config['source']}")
+          language = File.extname("#{Nexmo::Markdown::Config.Nexmo::Markdown::Config.docs_base_path}/#{config['source']}")[1..-1]
           lexer = language_to_lexer(language)
     
           total_lines = code.lines.count

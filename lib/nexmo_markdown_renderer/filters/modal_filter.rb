@@ -11,7 +11,7 @@ module Nexmo
         end
     
         modals = modals.map do |modal|
-          filename = "#{DOCS_BASE_PATH}/#{modal[:document]}"
+          filename = "#{Nexmo::Markdown::Config.docs_base_path}/#{modal[:document]}"
           raise "Could not find modal #{filename}" unless File.exist? filename
     
           document = File.read(filename)

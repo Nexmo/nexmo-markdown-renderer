@@ -20,6 +20,7 @@ require_relative '../lib/nexmo_markdown_renderer'
 
 RSpec.configure do |config|
   config.before(:each) do
+    allow(Nexmo::Markdown::Config).to receive(:docs_base_path).and_return('spec/fixtures')
     @original_dictionary =Nexmo::Markdown::DocFinder .dictionary
     Nexmo::Markdown::DocFinder.configure do |config|
       config.paths << 'spec/fixtures/config/tutorials'

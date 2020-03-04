@@ -66,7 +66,7 @@ module Nexmo
       end
     
       def generate_code_block(language, input, unindent)
-        filename = "#{DOCS_BASE_PATH}/#{input['source']}"
+        filename = "#{Nexmo::Markdown::Config.docs_base_path}/#{input['source']}"
         return '' unless input
         raise "CodeSnippetFilter - Could not load #{filename} for language #{language}" unless File.exist?(filename)
     

@@ -119,7 +119,7 @@ RSpec.describe Nexmo::Markdown::CodeSnippetFilter do
       ```
     HEREDOC
 
-    expect { described_class.call(input) }.to raise_error("CodeSnippetFilter - Could not load #{DOCS_BASE_PATH}/.repos/nexmo/nexmo-ruby-code-snippets/example/example_snippet.rb for language ruby")
+    expect { described_class.call(input) }.to raise_error("CodeSnippetFilter - Could not load #{Nexmo::Markdown::Config.docs_base_path}/.repos/nexmo/nexmo-ruby-code-snippets/example/example_snippet.rb for language ruby")
   end
 
   it 'raises an exception if application is specified but type is not recognized' do
