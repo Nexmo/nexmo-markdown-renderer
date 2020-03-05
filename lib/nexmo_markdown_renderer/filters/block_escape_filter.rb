@@ -7,15 +7,15 @@ module Nexmo
           lexer = Rouge::Lexer.find('text')
           formatter = Rouge::Formatters::HTML.new
           highlighted_source = formatter.format(lexer.lex($1))
-    
+
           output = <<~HEREDOC
-            <pre class="highlight #{lexer.tag}"><code>#{highlighted_source}</code></pre>
+            <pre class="Vlt-prism--dark language-#{lexer.tag}"><code>#{highlighted_source}</code></pre>
           HEREDOC
-    
+
           "FREEZESTART#{Base64.urlsafe_encode64(output)}FREEZEEND"
         end
       end
     end
-    
+
   end
 end

@@ -26,7 +26,7 @@ module Nexmo
           highlighted_source = highlight(code, lexer)
     
           <<~HEREDOC
-            <pre class="highlight #{lexer.tag}"><code>#{highlighted_source}</code></pre>
+            <pre class="Vlt-prism--dark language-#{lexer.tag}"><code>#{highlighted_source}</code></pre>
           HEREDOC
         end
       end
