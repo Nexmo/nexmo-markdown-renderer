@@ -9,7 +9,7 @@ module Nexmo
           highlighted_source = formatter.format(lexer.lex($1))
 
           output = <<~HEREDOC
-            <pre class="Vlt-prism--dark language-#{lexer.tag}"><code>#{highlighted_source}</code></pre>
+            <pre class="Vlt-prism--dark language-#{lexer.tag} Vlt-prism--copy-disabled"><code>#{highlighted_source}</code></pre>
           HEREDOC
 
           "FREEZESTART#{Base64.urlsafe_encode64(output)}FREEZEEND"

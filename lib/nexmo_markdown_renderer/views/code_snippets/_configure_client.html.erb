@@ -10,7 +10,7 @@
       <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="configure">
         <%= octicon "clippy", :class => 'top left' %> <span>Copy to Clipboard</span>
       </div>
-      <pre class="Vlt-prism--dark language-<%= lexer.tag %>"><code><%= highlighted_client_source %></code></pre>
+      <pre class="Vlt-prism--dark language-<%= lexer.tag %> Vlt-prism--copy-disabled"><code><%= highlighted_client_source %></code></pre>
     </div>
 
     <p><a data-section="configure" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= client_url %>">View full source</a></p>

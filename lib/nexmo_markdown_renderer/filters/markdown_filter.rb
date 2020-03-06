@@ -86,7 +86,7 @@ module Nexmo
           code.gsub! /^    /, "\t"
         end
 
-        formatter = ::Rouge::Formatters::HTMLLegacy.new(:css_class => "Vlt-prism--dark language-#{lexer.tag}")
+        formatter = ::Rouge::Formatters::HTMLLegacy.new(:css_class => "Vlt-prism--dark language-#{lexer.tag} Vlt-prism--copy-disabled")
         formatter.format(lexer.lex(code))
       end
     end

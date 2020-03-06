@@ -4,7 +4,7 @@
 	<div id="acc<%= id %>" class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
 		    <p><%=deps['text']%></p>
         <% if deps['code'] %>
-		    <pre class="Vlt-prism--dark language-<%= deps['type'] || 'bash' %> dependencies command-line" data-prompt='$'><code><%=deps['code']%></code></pre>
+		    <pre class="Vlt-prism--dark language-<%= deps['type'] || 'bash' %> dependencies command-line Vlt-prism--copy-disabled" data-prompt='$'><code><%=deps['code']%></code></pre>
         <% end %>
 	</div>
 </div>
