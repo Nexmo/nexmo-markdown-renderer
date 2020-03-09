@@ -10,8 +10,8 @@ module Nexmo
             config = config['config'].split('.').inject(configs) { |h, k| h[k] }
           end
     
-          code = File.read("#{Nexmo::Markdown::Config.Nexmo::Markdown::Config.docs_base_path}/#{config['source']}")
-          language = File.extname("#{Nexmo::Markdown::Config.Nexmo::Markdown::Config.docs_base_path}/#{config['source']}")[1..-1]
+          code = File.read("#{Nexmo::Markdown::Config.docs_base_path}/#{config['source']}")
+          language = File.extname("#{Nexmo::Markdown::Config.docs_base_path}/#{config['source']}")[1..-1]
           lexer = language_to_lexer(language)
     
           total_lines = code.lines.count
