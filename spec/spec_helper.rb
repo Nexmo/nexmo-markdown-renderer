@@ -16,6 +16,7 @@
 require 'rspec/snapshot'
 require 'rspec/collection_matchers'
 require 'rspec/expectations'
+require 'capybara'
 require_relative '../lib/nexmo_markdown_renderer'
 
 RSpec.configure do |config|
