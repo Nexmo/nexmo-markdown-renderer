@@ -6,7 +6,7 @@ module Nexmo
           config = YAML.safe_load($1)
     
           if config['config']
-            configs = YAML.load_file("#{Nexmo::Markdown::Config.Nexmo::Markdown::Config.docs_base_path}/config/code_examples.yml")
+            configs = YAML.load_file("#{Nexmo::Markdown::Config.docs_base_path}/config/code_examples.yml")
             config = config['config'].split('.').inject(configs) { |h, k| h[k] }
           end
     
