@@ -21,7 +21,8 @@ require_relative 'nexmo_markdown_renderer/services/code_snippet_renderer/php'
 require_relative 'nexmo_markdown_renderer/services/code_snippet_renderer/python'
 require_relative 'nexmo_markdown_renderer/services/code_snippet_renderer/ruby'
 require_relative 'nexmo_markdown_renderer/services/code_snippet_renderer/swift'
-Dir[File.join(__dir__, 'nexmo_markdown_renderer/services', '*.rb')].each { |file| require_relative file }
+require_relative 'nexmo_markdown_renderer/services/doc_finder'
+require_relative 'nexmo_markdown_renderer/services/doc_finder/doc'
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/models', '*.rb')].each { |file| require_relative file }
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/filters', '*.rb')].each { |file| require_relative file }
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/filters/i18n', '*.rb')].each { |file| require_relative file }

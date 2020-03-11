@@ -46,7 +46,9 @@ RSpec.describe Nexmo::Markdown::DocFinder do
       let(:code_language) { 'ruby' }
 
       it 'returns the path to the doc' do
-        expect(subject).to eq("#{ENV['DOCS_BASE_PATH']}/_documentation/en/numbers/code-snippets/list-owned.md")
+        expect(subject).to be_an_instance_of(described_class::Doc)
+        expect(subject.path).to eq("#{ENV['DOCS_BASE_PATH']}/_documentation/en/numbers/code-snippets/list-owned.md")
+        expect(subject.available_languages).to eq(['en'])
       end
     end
   end
@@ -69,7 +71,9 @@ RSpec.describe Nexmo::Markdown::DocFinder do
       let(:language) { 'de' }
 
       it 'defaults to english' do
-        expect(subject).to eq("#{ENV['DOCS_BASE_PATH']}/_documentation/en/numbers/code-snippets/list-owned.md")
+        expect(subject).to be_an_instance_of(described_class::Doc)
+        expect(subject.path).to eq("#{ENV['DOCS_BASE_PATH']}/_documentation/en/numbers/code-snippets/list-owned.md")
+        expect(subject.available_languages).to eq(['en'])
       end
     end
   end
@@ -95,7 +99,9 @@ RSpec.describe Nexmo::Markdown::DocFinder do
         let(:language) { 'de' }
 
         it 'returns the path to the file in the default language' do
-          expect(subject).to eq("#{ENV['DOCS_BASE_PATH']}/_documentation/en/messages/external-accounts/overview.md")
+          expect(subject).to be_an_instance_of(described_class::Doc)
+          expect(subject.path).to eq("#{ENV['DOCS_BASE_PATH']}/_documentation/en/messages/external-accounts/overview.md")
+          expect(subject.available_languages).to eq(['en'])
         end
       end
     end
