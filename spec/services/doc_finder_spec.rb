@@ -46,7 +46,7 @@ RSpec.describe Nexmo::Markdown::DocFinder do
       let(:code_language) { 'ruby' }
 
       it 'returns the path to the doc' do
-        expect(subject).to eq("spec/fixtures/_documentation/en/numbers/code-snippets/list-owned.md")
+        expect(subject.path).to eq("spec/fixtures/_documentation/en/numbers/code-snippets/list-owned.md")
       end
     end
   end
@@ -69,7 +69,7 @@ RSpec.describe Nexmo::Markdown::DocFinder do
       let(:language) { 'de' }
 
       it 'defaults to english' do
-        expect(subject).to eq("spec/fixtures/_documentation/en/numbers/code-snippets/list-owned.md")
+        expect(subject.path).to eq("spec/fixtures/_documentation/en/numbers/code-snippets/list-owned.md")
       end
     end
   end
@@ -95,7 +95,7 @@ RSpec.describe Nexmo::Markdown::DocFinder do
         let(:language) { 'de' }
 
         it 'returns the path to the file in the default language' do
-          expect(subject).to eq("spec/fixtures/_documentation/en/messages/external-accounts/overview.md")
+          expect(subject.path).to eq("spec/fixtures/_documentation/en/messages/external-accounts/overview.md")
         end
       end
     end
