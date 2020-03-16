@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::ModalFilter do
   before(:each) do
-    allow(ENV).to receive(:[]).with('DOCS_BASE_PATH').and_return('.')
+    allow(Nexmo::Markdown::Config).to receive(:docs_base_path).and_return('.')
   end
   it 'takes input of title and markdown link and produces HTML content' do
     allow(SecureRandom).to receive(:hex).and_return('12345')

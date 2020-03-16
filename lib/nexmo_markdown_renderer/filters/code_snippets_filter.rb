@@ -89,7 +89,7 @@ module Nexmo
       end
     
       def content_from_source
-        source_path = "#{ENV['DOCS_BASE_PATH']}/#{@config['source']}/*.yml"
+        source_path = "#{Nexmo::Markdown::Config.docs_base_path}/#{@config['source']}/*.yml"
     
         files = Dir[source_path]
         raise "No .yml files found for #{@config['source']} code snippets" if files.empty?

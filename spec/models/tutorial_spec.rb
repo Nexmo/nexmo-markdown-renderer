@@ -181,7 +181,7 @@ RSpec.describe Nexmo::Markdown::Tutorial, type: :model do
       it 'raises if it does not exist' do
         create_example_config
         tutorial = described_class.load('example-tutorial', 'introduction')
-        expect(Nexmo::Markdown::DocFinder).to receive(:find).with(root: "#{ENV['DOCS_BASE_PATH']}/_tutorials", document: 'missing-step', language: :en).and_call_original
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).with(root: "spec/fixtures/_tutorials", document: 'missing-step', language: :en).and_call_original
         expect { tutorial.content_for('missing-step') }.to raise_error(Nexmo::Markdown::DocFinder::MissingDoc)
       end
     end
@@ -277,7 +277,7 @@ def create_application_content
     HEREDOC
   )
   allow(Nexmo::Markdown::DocFinder).to receive(:find)
-    .with(root: "#{ENV['DOCS_BASE_PATH']}/_tutorials", document: 'application/create-voice', language: :en)
+    .with(root: "spec/fixtures/_tutorials", document: 'application/create-voice', language: :en)
     .and_return(Nexmo::Markdown::DocFinder::Doc.new(path: path, available_languages: ['en']))
 end
 
@@ -293,7 +293,7 @@ def create_outbound_call_content
     HEREDOC
   )
   allow(Nexmo::Markdown::DocFinder).to receive(:find)
-    .with(root: "#{ENV['DOCS_BASE_PATH']}/_tutorials", document: 'voice/make-outbound-call', language: :en)
+    .with(root: "spec/fixtures/_tutorials", document: 'voice/make-outbound-call', language: :en)
     .and_return(Nexmo::Markdown::DocFinder::Doc.new(path: path, available_languages: ['en']))
 end
 

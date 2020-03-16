@@ -7,7 +7,7 @@ module Nexmo
           file_path = if config['source'].starts_with? 'app/views'
                         config['source']
                       else
-                        "#{ENV['DOCS_BASE_PATH']}/#{config['source']}"
+                        "#{Nexmo::Markdown::Config.docs_base_path}/#{config['source']}"
                       end
           content = File.read(file_path)
     

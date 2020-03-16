@@ -2,8 +2,8 @@ module Nexmo
   module Markdown
     class Concept
       include ActiveModel::Model
-
-      ORIGIN = "#{ENV['DOCS_BASE_PATH']}/_documentation".freeze
+    
+      ORIGIN = "#{Nexmo::Markdown::Config.docs_base_path}/_documentation".freeze
 
       FILES = [
         Dir.glob("#{ORIGIN}/#{::I18n.default_locale}/**/guides/**/*.md"),
