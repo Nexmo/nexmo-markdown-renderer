@@ -39,7 +39,7 @@ module Nexmo
       end
     
       def table(header, body)
-        '<div class="Vlt-table Vlt-table--data Vlt-table--bordered">' \
+        '<div class="Vlt-table Vlt-table--bordered">' \
         '<table>' \
           "<thead>#{header}</thead>" \
           "<tbody>#{body}</tbody>" \
@@ -74,6 +74,20 @@ module Nexmo
           "#{contents}" \
           '</ol>' \
         end
+      end
+
+      def block_code(code, language)
+        lexer = ::Rouge::Lexer.find_fancy(language, code) || ::Rouge::Lexers::PlainText
+
+        # XXX HACK: Redcarpet strips hard tabs out of code blocks,
+        # so we assume you're not using leading spaces that aren't tabs,
+        # and just replace them here.
+        if lexer.tag == 'make'
+          code.gsub! /^    /, "\t"
+        end
+
+        formatter = ::Rouge::Formatters::HTMLLegacy.new(:css_class => "Vlt-prism--dark language-#{lexer.tag} Vlt-prism--copy-disabled")
+        formatter.format(lexer.lex(code))
       end
     end
   end
