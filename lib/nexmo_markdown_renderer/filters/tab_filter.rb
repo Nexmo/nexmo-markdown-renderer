@@ -254,7 +254,7 @@ module Nexmo
           lexer = content[:language].lexer
           highlighted_source = @formatter.format(lexer.lex(content[:source]))
           body = <<~HEREDOC
-            <pre class="highlight #{content[:language_key]}"><code>#{highlighted_source}</code></pre>
+            <pre class="Vlt-prism--dark language-#{lexer.tag} Vlt-prism--copy-disabled"><code>#{highlighted_source}</code></pre>
           HEREDOC
     
           content.merge!({ body: body })
