@@ -9,7 +9,7 @@ module Nexmo
       end
 
       def relative_path
-        document_path.relative_path_from(self.class.origin).sub("#{::I18n.locale}/", '').to_s.gsub('.md', '')
+        document_path.relative_path_from(self.class.origin).sub(/\w{2}\//, '').to_s.gsub('.md', '')
       end
 
       def path
