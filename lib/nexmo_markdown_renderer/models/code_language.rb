@@ -72,7 +72,7 @@ module Nexmo
       end
     
       private_class_method def self.config
-        if (defined?(Rails) && Rails.application.configuration.docs_base_path && File.exist("#{Rails.application.configuration.docs_base_path}/config/code_languages.yml"))
+        if (defined?(Rails) && Rails.application != nil && Rails.application.configuration.docs_base_path && File.exist("#{Rails.application.configuration.docs_base_path}/config/code_languages.yml"))
           @config ||= YAML.load_file("#{Rails.application.configuration.docs_base_path}/config/code_languages.yml")
         else
           @config ||= YAML.load_file('./config/code_languages.yml')
