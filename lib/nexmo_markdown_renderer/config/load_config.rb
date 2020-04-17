@@ -6,7 +6,7 @@ module Nexmo
       end
     
       def self.docs_base_path
-        (mounted? && Rails.application.configuration.docs_base_path) || '.'
+        (mounted? && Rails.application.config.docs_base_path) || '.'
       end
     
       def self.load_file(file_path)
