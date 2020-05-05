@@ -51,7 +51,7 @@ module Nexmo
           elsif content[:language].key == 'objective_c' || content[:language].key == 'swift'
             tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/ios.svg#ios\" /></svg><span>" + content[:tab_title] + '</span>'
           elsif content[:language].key == 'kotlin'
-            tab_link.inner_html = "<img class=\"Vlt-icon Vlt-icon--large\" src=\"/assets/images/brands/kotlin.svg#kotlin\" /><span>" + content[:tab_title] + '</span>'
+            tab_link.inner_html = "<img class=\"Vlt-icon Vlt-icon--small\" src=\"/assets/images/brands/kotlin.svg#kotlin\" /><span>" + content[:tab_title] + '</span>'
           else
             tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:language].key}.svg##{content[:language].key}\" /></svg><span>" + content[:tab_title] + '</span>'
           end
