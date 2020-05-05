@@ -63,7 +63,7 @@ module Nexmo
       end
 
       def first_step
-        subtasks.first.name
+        subtasks.first&.name
       end
 
       def prerequisite?

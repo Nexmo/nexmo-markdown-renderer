@@ -1,16 +1,17 @@
 module Nexmo
   module Markdown
     class MarkdownFilter < Banzai::Filter
+
       def call(input)
         markdown.render(input)
       end
-    
+
       private
-    
+
       def renderer
         @renderer ||= VoltaRender.new(options)
       end
-    
+
       def markdown
         @markdown ||= Redcarpet::Markdown.new(renderer, {
           no_intra_emphasis: true,
@@ -27,17 +28,19 @@ module Nexmo
     end
 
     class VoltaRender < HTML
+      include Nexmo::Markdown::Concerns::PrismCodeSnippet
+
       def initialize(options)
         @options = options
         super(options)
       end
-    
+
       def paragraph(text)
         return text if @options[:skip_paragraph_surround]
-    
+
         "<p>#{text}</p>"
       end
-    
+
       def table(header, body)
         '<div class="Vlt-table Vlt-table--bordered">' \
         '<table>' \
@@ -46,7 +49,7 @@ module Nexmo
         '</table>' \
         '</div>'
       end
-    
+
       def block_quote(quote)
         '<div class="Vlt-callout Vlt-callout--tip">' \
           '<i></i>' \
@@ -55,7 +58,7 @@ module Nexmo
           '</div>' \
         '</div>'
       end
-    
+
       def image(link, _title, _alt_text)
         '<figure>' \
           '<img src="'\
@@ -63,7 +66,7 @@ module Nexmo
           '" alt="#{alt_text}">' \
         '</figure>'
       end
-    
+
       def list(contents, list_type)
         if "#{list_type}" == 'unordered'
           '<ul class="Vlt-list Vlt-list--simple">' \
@@ -86,7 +89,7 @@ module Nexmo
           code.gsub! /^    /, "\t"
         end
 
-        formatter = ::Rouge::Formatters::HTMLLegacy.new(:css_class => "Vlt-prism--dark language-#{lexer.tag} Vlt-prism--copy-disabled")
+        formatter = ::Rouge::Formatters::HTMLLegacy.new(:css_class => prism_css_classes(lexer))
         formatter.format(lexer.lex(code))
       end
     end
