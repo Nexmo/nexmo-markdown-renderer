@@ -185,7 +185,7 @@ module Nexmo
       end
 
       def self.tutorials_path
-        'config/tutorials'
+        "#{Nexmo::Markdown::Config.docs_base_path}/config/tutorials"
       end
     end
   end
