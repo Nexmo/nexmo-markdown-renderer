@@ -70,7 +70,7 @@ module Nexmo
 
         languages.each do |l|
           item_list.each do |i|
-            if i.languages.include?(l.label)
+            if i.languages.map(&:downcase).include?(l.label.downcase)
               languages_mapped << l
             end
             languages_mapped
