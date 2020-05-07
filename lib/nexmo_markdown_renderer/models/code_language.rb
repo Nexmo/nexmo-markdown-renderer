@@ -64,6 +64,21 @@ module Nexmo
       def self.route_constraint
         { code_language: Regexp.new(linkable.map(&:key).compact.join('|')) }
       end
+
+      def self.filter_languages_for_dropdown(languages, item_list)
+        languages_mapped = []
+
+        languages.each do |l|
+          item_list.each do |i|
+            if i.languages.include?(l.label)
+              languages_mapped << l
+            end
+            languages_mapped
+          end
+        end
+
+        languages_mapped
+      end
     
       private_class_method def self.where_type(type)
         config[type].map do |key, attributes|
