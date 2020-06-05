@@ -22,13 +22,25 @@ module Nexmo
           # Read the code
           highlighted_code_source = generate_code_block(config['language'], config['code'], config['unindent'])
 
+          # Install dependencies...
           dependency_html = ''
           if config['dependencies']
             dependency_html = generate_dependencies(lexer.tag, config['dependencies'])
           end
 
+          # Import dependencies...
+          dependencies_import = ''
+          if config['import_dependencies']
+            highlighted_import_source = generate_code_block(config['language'], config['import_dependencies'], config['unindent'])
+            client_url = generate_source_url(config['import_dependencies'])
+            id = SecureRandom.hex
+            erb = File.read("#{GEM_ROOT}/lib/nexmo_markdown_renderer/views/code_snippets/_import_dependencies.html.erb")
+            dependencies_import = ERB.new(erb).result(binding)
+          end
+
           source_url = generate_source_url(config['code'])
 
+          # Initialize dependencies...
           client_html = ''
           if highlighted_client_source
             client_url = generate_source_url(config['client'])
@@ -52,7 +64,7 @@ module Nexmo
           config['run_command'] = config['run_command'].gsub('{filename}', config['file_name']) if config['run_command']
           run_html = @renderer.run_command(config['run_command'], config['file_name'], config['code']['source']).to_s
 
-          prereqs = (application_html + dependency_html + client_html).strip
+          prereqs = (application_html + dependency_html + dependencies_import + client_html).strip
           prereqs = "<h2>#{::I18n.t('.filters.prerequisites')}</h2>#{prereqs}" unless prereqs.empty?
           prereqs + code_html + run_html
         end
@@ -131,30 +143,7 @@ module Nexmo
       end
 
       def generate_application_block(app)
-        return '' unless app
-
-        base_url = 'http://demo.ngrok.io'
-        base_url = 'https://example.com' if app['disable_ngrok']
-
-        app['name'] = 'ExampleProject' unless app['name']
-
-        # We should remove this default once we're sure that all Code Snippets
-        # have a type set e.g audit
-        app['type'] ||= 'voice'
-
-        if ['voice', 'rtc'].include? app['type']
-          app['event_url'] = "#{base_url}/webhooks/events" unless app['event_url']
-          app['answer_url'] = "#{base_url}/webhooks/answer" unless app['answer_url']
-          erb = File.read("#{GEM_ROOT}/lib/nexmo_markdown_renderer/views/code_snippets/_application_#{app['type']}.html.erb")
-        elsif ['messages', 'dispatch'].include? app['type']
-          erb = File.read("#{GEM_ROOT}/lib/nexmo_markdown_renderer/views/code_snippets/_application_messages_dispatch.html.erb")
-        else
-          raise "Invalid application type when creating code snippet: '#{app['type']}'"
-        end
-
-        id = SecureRandom.hex
-
-        ERB.new(erb).result(binding)
+        ::Nexmo::Markdown::Filters::CodeSnippet::CreateApplication.new(app).render
       end
 
       def generate_source_url(code)

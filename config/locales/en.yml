@@ -129,6 +129,7 @@ en:
       write_the_code: Write the code
     configure_client:
       initialize_dependencies: Initialize your dependencies
+      import_dependencies: Import your dependencies
     application_messages_dispatch:
       no_application_html: If you do not have an application you can <a href="/messages/code-snippets/create-an-application">create one</a>. Make sure you also <a href="/messages/code-snippets/configure-webhooks">configure your webhooks</a>.
     application_rtc:

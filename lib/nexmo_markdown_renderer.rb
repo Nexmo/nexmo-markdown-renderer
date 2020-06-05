@@ -38,6 +38,7 @@ require_relative 'nexmo_markdown_renderer/models/tutorial/prerequisite'
 require_relative 'nexmo_markdown_renderer/models/tutorial/task'
 require_relative 'nexmo_markdown_renderer/models/use_case'
 
+require_relative 'nexmo_markdown_renderer/filters/code_snippet/create_application'
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/filters/concerns', '*.rb')].each { |file| require_relative file }
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/filters', '*.rb')].each { |file| require_relative file }
 Dir[File.join(__dir__, 'nexmo_markdown_renderer/filters/i18n', '*.rb')].each { |file| require_relative file }
