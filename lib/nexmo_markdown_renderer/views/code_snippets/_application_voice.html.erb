@@ -18,7 +18,7 @@
               <p><%= ::I18n.t('.code_snippets.nexmo_needs_to_connect_html') %></p>
             <% end %>
 
-            <pre class="Vlt-prism--dark dependencies command-line Vlt-prism--copy-disabled language-bash" data-prompt='$'><code>nexmo app:create "<%=app['name'] %>" <%=app['answer_url'] %> <%=app['event_url'] %> --keyfile private.key</code></pre>
+            <pre class="Vlt-prism--dark dependencies command-line Vlt-prism--copy-disabled language-bash" data-prompt='$'><code>nexmo app:create "<%= name %>" <%= answer_url %> <%= event_url %> --keyfile private.key</code></pre>
         <% end %>
     </div>
 </div>

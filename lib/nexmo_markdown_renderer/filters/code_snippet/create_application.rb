@@ -3,7 +3,10 @@ module Nexmo
     module Filters
       module CodeSnippet
         class CreateApplication
-          NGROK_URL = 'http://demo.ngrok.io'.freeze
+          include Renderable
+
+          NGROK_URL   = 'http://demo.ngrok.io'.freeze
+          EXAMPLE_URL = 'https://example.com'.freeze
 
           attr_reader :app
 
@@ -12,11 +15,11 @@ module Nexmo
           end
 
           def base_url
-            @base_url ||= @app['disable_ngrok'] || NGROK_URL
+            @base_url ||= @app['disable_ngrok'] && EXAMPLE_URL || NGROK_URL
           end
 
           def name
-            @name ||= @app.fetch('name', 'ExampleProject')
+            @name ||= @app['name'] || 'ExampleProject'
           end
 
           def type
@@ -26,15 +29,11 @@ module Nexmo
           end
 
           def event_url
-            @event_url ||= @app.fetch('event_url', "#{base_ur}/webhooks/events")
+            @event_url ||= @app.fetch('event_url', "#{base_url}/webhooks/events")
           end
 
           def answer_url
-            @answer_url |= @app.fetch('answer_url', "#{base_url}/webhooks/answer")
-          end
-
-          def id
-            @id ||= SecureRandom.hex
+            @answer_url ||= @app.fetch('answer_url', "#{base_url}/webhooks/answer")
           end
 
           def partial
