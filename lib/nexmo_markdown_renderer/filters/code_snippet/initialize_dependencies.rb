@@ -26,7 +26,12 @@ module Nexmo
           def render
             return '' unless @config
 
-            create_instructions = renderer.create_instructions(file_name).render_markdown
+            create_instructions = if import_dependencies?
+              renderer.add_instructions(file_name).render_markdown
+            else
+              renderer.create_instructions(file_name).render_markdown
+            end
+
             ERB.new(partial).result(binding)
           end
         end

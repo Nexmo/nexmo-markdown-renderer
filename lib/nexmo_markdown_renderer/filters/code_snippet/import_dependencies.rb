@@ -28,6 +28,7 @@ module Nexmo
           def render
             return '' unless @config
 
+            create_instructions = renderer.create_instructions(file_name).render_markdown
             ERB.new(partial).result(binding)
           end
         end

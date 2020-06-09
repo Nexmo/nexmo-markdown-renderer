@@ -30,6 +30,10 @@ module Nexmo
           def source
             @source ||= @config['source']
           end
+
+          def import_dependencies?
+            @config['import_dependencies']
+          end
         end
       end
     end

@@ -7,7 +7,7 @@ module Nexmo
         module Renderable
           extend Forwardable
 
-          def_delegators :@snippet, :language, :lang, :renderer, :lexer, :unindent, :file_name, :source
+          def_delegators :@snippet, :language, :lang, :renderer, :lexer, :unindent, :file_name, :source, :import_dependencies?
 
           def id
             @id ||= SecureRandom.hex
