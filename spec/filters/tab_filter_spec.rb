@@ -43,8 +43,8 @@ RSpec.describe Nexmo::Markdown::TabFilter do
     let(:path) { 'path/to/a/directory' }
 
     it 'raises an exception if tabbed parameter is not set to true' do
-      expect(File).to receive(:directory?).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}").and_return(true)
-      expect(File).to receive(:read).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}/.config.yml").and_return(config_tabbed_false)
+      expect(File).to receive(:directory?).with("#{path}").and_return(true)
+      expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_false)
       input = <<~HEREDOC
         ```tabbed_folder
         source: #{path}
@@ -56,7 +56,7 @@ RSpec.describe Nexmo::Markdown::TabFilter do
     end
 
     it 'raises an exception if source path is not a directory' do
-      expect(File).to receive(:directory?).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}").and_return(false)
+      expect(File).to receive(:directory?).with("#{path}").and_return(false)
       input = <<~HEREDOC
         ```tabbed_folder
         source: #{path}
@@ -68,9 +68,9 @@ RSpec.describe Nexmo::Markdown::TabFilter do
     end
 
     it 'raises an error if there are no files in input directory' do
-      expect(File).to receive(:directory?).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}").and_return(true)
-      expect(File).to receive(:read).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}/.config.yml").and_return(config_tabbed_true)
-      expect(Dir).to receive(:glob).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}/*.md").and_return([])
+      expect(File).to receive(:directory?).with("#{path}").and_return(true)
+      expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_true)
+      expect(Dir).to receive(:glob).with("#{path}/*.md").and_return([])
       input = <<~HEREDOC
         ```tabbed_folder
         source: #{path}
@@ -78,13 +78,13 @@ RSpec.describe Nexmo::Markdown::TabFilter do
       HEREDOC
       expect do
         described_class.new.call(input)
-      end.to raise_error("Empty content_from_source file list in #{Nexmo::Markdown::Config.docs_base_path}/#{path}/*.md")
+      end.to raise_error("Empty content_from_source file list in #{path}/*.md")
     end
 
     it 'renders content with one markdown file in input' do
-      expect(File).to receive(:directory?).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}").and_return(true)
-      expect(File).to receive(:read).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}/.config.yml").and_return(config_tabbed_true)
-      expect(Dir).to receive(:glob).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}/*.md").and_return(["#{Nexmo::Markdown::Config.docs_base_path}/#{path}/javascript.md"])
+      expect(File).to receive(:directory?).with("#{path}").and_return(true)
+      expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_true)
+      expect(Dir).to receive(:glob).with("#{path}/*.md").and_return(["#{path}/javascript.md"])
       mock_content('javascript', first_sample_markdown)
       expect(SecureRandom).to receive(:hex).once.and_return('ID123456')
 
@@ -98,9 +98,9 @@ RSpec.describe Nexmo::Markdown::TabFilter do
     end
 
     it 'renders content with two markdown files in input' do
-      expect(File).to receive(:directory?).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}").and_return(true)
-      expect(File).to receive(:read).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}/.config.yml").and_return(config_tabbed_true)
-      expect(Dir).to receive(:glob).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}/*.md").and_return(["#{Nexmo::Markdown::Config.docs_base_path}/#{path}/javascript.md", "#{Nexmo::Markdown::Config.docs_base_path}/#{path}/android.md"])
+      expect(File).to receive(:directory?).with("#{path}").and_return(true)
+      expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_true)
+      expect(Dir).to receive(:glob).with("#{path}/*.md").and_return(["#{path}/javascript.md", "#{path}/android.md"])
       mock_content('javascript', first_sample_markdown)
       mock_content('android', second_sample_markdown)
       expect(SecureRandom).to receive(:hex).twice.and_return('ID123456')
@@ -115,9 +115,9 @@ RSpec.describe Nexmo::Markdown::TabFilter do
     end
 
     it 'renders content with three markdown files in input' do
-      expect(File).to receive(:directory?).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}").and_return(true)
-      expect(File).to receive(:read).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}/.config.yml").and_return(config_tabbed_true)
-      expect(Dir).to receive(:glob).with("#{Nexmo::Markdown::Config.docs_base_path}/#{path}/*.md").and_return(["#{Nexmo::Markdown::Config.docs_base_path}/#{path}/javascript.md", "#{Nexmo::Markdown::Config.docs_base_path}/#{path}/android.md", "#{Nexmo::Markdown::Config.docs_base_path}/#{path}/ios.md"])
+      expect(File).to receive(:directory?).with("#{path}").and_return(true)
+      expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_true)
+      expect(Dir).to receive(:glob).with("#{path}/*.md").and_return(["#{path}/javascript.md", "#{path}/android.md", "#{path}/ios.md"])
       mock_content('javascript', first_sample_markdown)
       mock_content('android', second_sample_markdown)
       mock_content('ios', third_sample_markdown)
@@ -181,7 +181,7 @@ RSpec.describe Nexmo::Markdown::TabFilter do
   end
 
   def mock_content(name, content)
-    expect(File).to receive(:exist?).with("./path/to/a/directory/#{name}.md").and_return(true)
-    expect(File).to receive(:read).with("./path/to/a/directory/#{name}.md").and_return(content)
+    expect(File).to receive(:exist?).with("path/to/a/directory/#{name}.md").and_return(true)
+    expect(File).to receive(:read).with("path/to/a/directory/#{name}.md").and_return(content)
   end
 end

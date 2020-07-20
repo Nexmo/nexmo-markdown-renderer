@@ -19,7 +19,7 @@ module Nexmo
             line_section += "-L#{code['to_line']}" if code['to_line']
           else
             # By default we read to the end of the file
-            line_section += "-L#{File.read(code['source']).lines.count}"
+            line_section += "-L#{File.read("#{Nexmo::Markdown::Config.docs_base_path}/#{code['source']}").lines.count}"
           end
         end
 

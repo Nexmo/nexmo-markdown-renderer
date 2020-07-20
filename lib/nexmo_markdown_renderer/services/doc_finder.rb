@@ -91,9 +91,9 @@ module Nexmo
 
       def self.load_english
         paths.each do |path|
-          if path.starts_with?('app/views')
+          if defined?(Rails) && path.starts_with?("#{Rails.root}/app/views")
             Dir["#{path}/**/*.*"].each do |file|
-              dictionary[file][::I18n.default_locale.to_s] = ::I18n.default_locale.to_s
+              dictionary[file.gsub("#{Rails.root}/", '')][::I18n.default_locale.to_s] = ::I18n.default_locale.to_s
             end
           else
             path_with_locale = "#{path}/#{::I18n.default_locale}"
