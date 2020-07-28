@@ -49,14 +49,14 @@ module Nexmo
           if ['json', 'xml'].include? content[:language].key.downcase
             tab_link.content = content[:tab_title]
           elsif content[:language].key == 'objective_c' || content[:language].key == 'swift'
-            tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/ios.svg#ios\" /></svg><span>" + content[:tab_title] + '</span>'
+            tab_link.inner_html = "<svg><use xlink:href=\"/symbol/volta-brand-icons.svg#Brand-icon-ios\" /></svg><span>" + content[:tab_title] + '</span>'
           elsif content[:language].key == 'kotlin'
             tab_link.inner_html = "<img class=\"Vlt-icon Vlt-icon--small\" src=\"/assets/images/brands/kotlin.svg#kotlin\" /><span>" + content[:tab_title] + '</span>'
           else
-            tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:language].key}.svg##{content[:language].key}\" /></svg><span>" + content[:tab_title] + '</span>'
+            tab_link.inner_html = "<svg><use xlink:href=\"/symbol/volta-brand-icons.svg#Brand-icon-#{content[:language].key}\" /></svg><span>" + content[:tab_title] + '</span>'
           end
         elsif content[:platform]
-          tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:platform].key}.svg##{content[:platform].key}\" /></svg><span>" + content[:tab_title] + '</span>'
+          tab_link.inner_html = "<svg><use xlink:href=\"/symbol/volta-brand-icons.svg#Brand-icon-#{content[:platform].key}\" /></svg><span>" + content[:tab_title] + '</span>'
         else
           tab_link.content = content[:tab_title]
         end
