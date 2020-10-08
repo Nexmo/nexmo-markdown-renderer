@@ -2,8 +2,8 @@ module Nexmo
   module Markdown
     class Utils
       def self.generate_source_url(code)
-        # Source example: .repos/nexmo/nexmo-java-code-snippets/ExampleClass.java
-        # Direct link on GitHub is in form https://github.com/nexmo/nexmo-java-code-snippets/blob/master/ExampleClass.java
+        # Source example: .repos/vonage/vonage-java-code-snippets/ExampleClass.java
+        # Direct link on GitHub is in form https://github.com/vonage/vonage-java-code-snippets/blob/master/ExampleClass.java
         start_section = 'https://github.com'
 
         # Insert "blob/master" and strip ".repos"

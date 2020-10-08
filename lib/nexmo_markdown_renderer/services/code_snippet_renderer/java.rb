@@ -11,7 +11,7 @@ module Nexmo
         end
 
         def self.run_command(_command, filename, file_path)
-          package = file_path.gsub('.repos/nexmo/nexmo-java-code-snippets/src/main/java/', '').tr('/', '.').gsub(filename, '')
+          package = file_path.gsub('.repos/vonage/vonage-java-code-snippets/src/main/java/', '').tr('/', '.').gsub(filename, '')
           file = filename.gsub('.java', '')
           main = "#{package}#{filename.gsub('.java', '')}"
           chomped_package = package.chomp('.')
