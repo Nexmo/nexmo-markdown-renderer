@@ -2,7 +2,7 @@ module Nexmo
   module Markdown
     module CodeSnippetRenderer
       class Curl < Base
-        def self.dependencies(deps)
+        def self.dependencies(deps, _version)
           dependencies = deps.map(&:upcase)
           raise t('.only_permitted_dependency') unless dependencies.include?('JWT')
           {

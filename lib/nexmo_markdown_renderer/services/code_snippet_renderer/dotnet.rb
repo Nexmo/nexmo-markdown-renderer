@@ -2,7 +2,7 @@ module Nexmo
   module Markdown
     module CodeSnippetRenderer
       class Dotnet < Base
-        def self.dependencies(deps)
+        def self.dependencies(deps, _version)
           { 'code' => "Install-Package #{deps.join(' ')}" }
         end
     

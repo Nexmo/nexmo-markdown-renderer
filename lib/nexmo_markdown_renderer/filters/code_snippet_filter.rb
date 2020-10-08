@@ -27,7 +27,7 @@ module Nexmo
       end
 
       def install_dependencies
-        @install_dependencies ||= ::Nexmo::Markdown::Filters::CodeSnippet::InstallDependencies.new(@config['dependencies'], @binding).render
+        @install_dependencies ||= ::Nexmo::Markdown::Filters::CodeSnippet::InstallDependencies.new(@config['dependencies'], @config['version'], @binding).render
       end
 
       def import_dependencies

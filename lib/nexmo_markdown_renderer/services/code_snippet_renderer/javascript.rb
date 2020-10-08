@@ -2,7 +2,7 @@ module Nexmo
   module Markdown
     module CodeSnippetRenderer
       class Javascript < Base
-        def self.dependencies(deps)
+        def self.dependencies(deps, _version)
           { 'code' => "npm install #{deps.join(' ')}" }
         end
     

@@ -5,9 +5,10 @@ module Nexmo
         class InstallDependencies
           include Renderable
 
-          def initialize(config, snippet)
+          def initialize(config, version, snippet)
             @config  = config
             @snippet = snippet
+            @version = version
           end
 
           def partial
@@ -28,7 +29,7 @@ module Nexmo
           def render
             return '' unless @config
 
-            deps = renderer.dependencies(@config)
+            deps = renderer.dependencies(@config, @version)
             ERB.new(partial).result(binding)
           end
         end

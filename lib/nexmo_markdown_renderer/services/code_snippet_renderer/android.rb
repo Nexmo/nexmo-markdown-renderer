@@ -2,7 +2,7 @@ module Nexmo
   module Markdown
     module CodeSnippetRenderer
       class Android < Base
-        def self.dependencies(_deps)
+        def self.dependencies(_deps, _version)
           {
             'text' => 'See <a href="https://developer.nexmo.com/use-cases/client-sdk-android-add-sdk-to-your-app">How to Add the Nexmo Client SDK to your Android App</a>',
           }
