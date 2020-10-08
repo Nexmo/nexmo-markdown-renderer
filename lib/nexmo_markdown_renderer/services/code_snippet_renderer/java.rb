@@ -2,10 +2,11 @@ module Nexmo
   module Markdown
     module CodeSnippetRenderer
       class Java < Base
-        def self.dependencies(deps)
+        def self.dependencies(deps, version)
+          raise "'version' not provided for Java snippet" unless version
           {
             'text' => ::I18n.t('services.code_snippet_renderer.add_instructions_to_file', file: 'build.gradle'),
-            'code' => deps.map { |d| "compile '#{d.gsub('@latest', '5.2.1')}'" }.join('<br />'),
+            'code' => deps.map { |d| "compile '#{d.gsub('@latest', version)}'" }.join('<br />'),
             'type' => 'groovy',
           }
         end

@@ -3,8 +3,12 @@ module Nexmo
     class CodeLanguage
       include ActiveModel::Model
       attr_accessor :key, :label, :type, :dependencies, :unindent, :icon, :run_command
-      attr_writer :weight, :linkable, :languages, :lexer
-    
+      attr_writer :weight, :linkable, :languages, :lexer, :version
+
+      def version
+        @version || nil
+      end
+
       def weight
         @weight || 999
       end

@@ -2,7 +2,7 @@ module Nexmo
   module Markdown
     module CodeSnippetRenderer
       class ObjectiveC < Base
-        def self.dependencies(_deps)
+        def self.dependencies(_deps, _version)
           {
             'text' => 'See <a href="/client-sdk/setup/add-sdk-to-your-app/ios">How to Add the Nexmo Client SDK to your iOS App</a>',
           }
