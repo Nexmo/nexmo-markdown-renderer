@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nexmo_markdown_renderer (0.4.1)
+    nexmo_markdown_renderer (0.4.2)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
@@ -218,4 +218,4 @@ DEPENDENCIES
   simplecov (~> 0.16)
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
