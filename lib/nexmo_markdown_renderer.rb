@@ -24,6 +24,7 @@ require_relative 'nexmo_markdown_renderer/services/code_snippet_renderer/php'
 require_relative 'nexmo_markdown_renderer/services/code_snippet_renderer/python'
 require_relative 'nexmo_markdown_renderer/services/code_snippet_renderer/ruby'
 require_relative 'nexmo_markdown_renderer/services/code_snippet_renderer/swift'
+require_relative 'nexmo_markdown_renderer/services/code_snippet_renderer/go'
 
 require_relative 'nexmo_markdown_renderer/services/doc_finder'
 require_relative 'nexmo_markdown_renderer/services/doc_finder/doc'
