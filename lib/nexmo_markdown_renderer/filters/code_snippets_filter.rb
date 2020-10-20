@@ -116,7 +116,8 @@ module Nexmo
           content['weight'] ||= defaults.weight
           content['run_command'] ||= defaults.run_command
           content['unindent'] = defaults.unindent || false
-    
+          content['version'] ||= defaults.version
+
           # If we don't have a file_name in config, use the one in the repo
           content['file_name'] ||= File.basename(content['code']['source'])
     

@@ -3,8 +3,12 @@ module Nexmo
     class CodeLanguage
       include ActiveModel::Model
       attr_accessor :key, :label, :type, :dependencies, :unindent, :icon, :run_command
-      attr_writer :weight, :linkable, :languages, :lexer
-    
+      attr_writer :weight, :linkable, :languages, :lexer, :version
+
+      def version
+        @version || nil
+      end
+
       def weight
         @weight || 999
       end
@@ -72,11 +76,7 @@ module Nexmo
       end
     
       private_class_method def self.config
-        if (defined?(Rails) && Rails.application.configuration.docs_base_path && File.exist("#{Rails.application.configuration.docs_base_path}/config/code_languages.yml"))
-          @config ||= YAML.load_file("#{Rails.application.configuration.docs_base_path}/config/code_languages.yml")
-        else
-          @config ||= YAML.load_file('./config/code_languages.yml')
-        end
+        @config ||= YAML.load_file("#{Nexmo::Markdown::Config.docs_base_path}/config/code_languages.yml")
       end
     end    
   end

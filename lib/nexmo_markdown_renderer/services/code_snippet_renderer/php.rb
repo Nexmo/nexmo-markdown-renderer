@@ -2,7 +2,7 @@ module Nexmo
   module Markdown
     module CodeSnippetRenderer
       class Php < Base
-        def self.dependencies(deps)
+        def self.dependencies(deps, _version)
           { 'code' => "composer require #{deps.join(' ')}" }
         end
     

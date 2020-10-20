@@ -10,9 +10,9 @@ module Nexmo
           @config = YAML.safe_load($3)
 
           if tabbed_folder?
-            raise "#{@config['source']} is not a directory" unless File.directory? "#{Nexmo::Markdown::Config.docs_base_path}/#{@config['source']}"
+            raise "#{@config['source']} is not a directory" unless File.directory? "#{@config['source']}"
 
-            @tabbed_config = YAML.safe_load(File.read("#{Nexmo::Markdown::Config.docs_base_path}/#{@config['source']}/.config.yml"))
+            @tabbed_config = YAML.safe_load(File.read("#{@config['source']}/.config.yml"))
             @path = @config['source']
             validate_folder_config
           else
@@ -169,7 +169,7 @@ module Nexmo
       end
 
       def content_from_folder
-        source_path = "#{Nexmo::Markdown::Config.docs_base_path}/#{@config['source']}"
+        source_path = "#{@config['source']}"
         source_path += '/*.md'
 
         files = Dir.glob(source_path)

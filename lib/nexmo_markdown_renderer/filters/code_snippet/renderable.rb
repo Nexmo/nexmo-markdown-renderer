@@ -43,6 +43,8 @@ module Nexmo
               Nexmo::Markdown::CodeSnippetRenderer::ObjectiveC
             when 'swift'
               Nexmo::Markdown::CodeSnippetRenderer::Swift
+            when 'go'
+              Nexmo::Markdown::CodeSnippetRenderer::Go
             else
               raise "Unknown language: #{normalized_language}"
             end

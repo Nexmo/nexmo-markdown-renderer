@@ -2,8 +2,8 @@ module Nexmo
   module Markdown
     class Utils
       def self.generate_source_url(code)
-        # Source example: .repos/nexmo/nexmo-java-code-snippets/ExampleClass.java
-        # Direct link on GitHub is in form https://github.com/nexmo/nexmo-java-code-snippets/blob/master/ExampleClass.java
+        # Source example: .repos/vonage/vonage-java-code-snippets/ExampleClass.java
+        # Direct link on GitHub is in form https://github.com/vonage/vonage-java-code-snippets/blob/master/ExampleClass.java
         start_section = 'https://github.com'
 
         # Insert "blob/master" and strip ".repos"
@@ -19,7 +19,7 @@ module Nexmo
             line_section += "-L#{code['to_line']}" if code['to_line']
           else
             # By default we read to the end of the file
-            line_section += "-L#{File.read(code['source']).lines.count}"
+            line_section += "-L#{File.read("#{Nexmo::Markdown::Config.docs_base_path}/#{code['source']}").lines.count}"
           end
         end
 
