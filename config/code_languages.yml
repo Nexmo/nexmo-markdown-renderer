@@ -109,6 +109,15 @@ languages:
     icon: ios
     dependencies: []
 
+  go:
+    weight: 12 
+    label: Go
+    lexer: go
+    icon: curl
+    dependencies:
+      - 'vonage/vonage-go-sdk'
+    run_command: 'go run {filename}'
+ 
 platforms:
   ios:
     languages:
