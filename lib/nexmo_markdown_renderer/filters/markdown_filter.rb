@@ -63,7 +63,9 @@ module Nexmo
         '<figure>' \
           '<img src="'\
           "#{link}"\
-          '" alt="#{alt_text}">' \
+          '" alt="'\
+          "#{alt_text}"\
+          '">' \
         '</figure>'
       end
 
