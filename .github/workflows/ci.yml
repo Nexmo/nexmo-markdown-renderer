@@ -20,6 +20,6 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
     - name: Install dependencies
-      run: bundle install --without development
+      run: bundle install
     - name: Run tests
       run: bundle exec rspec
