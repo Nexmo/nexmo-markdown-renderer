@@ -19,7 +19,5 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
-    - name: Install dependencies
-      run: bundle install --without development
     - name: Run tests
       run: bundle exec rspec
