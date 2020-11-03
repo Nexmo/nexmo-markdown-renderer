@@ -1,9 +1,9 @@
-<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
-    <h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis Vlt-accordion">
+    <button class="Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
         <%= app['use_existing'] ? ::I18n.t('.code_snippets.use_your_app') : ::I18n.t('.code_snippets.create_an_app') %>
-    </h5>
+    </button>
 
-    <div id="acc<%=id %>"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+    <div id="acc<%=id %>" class="Vlt-accordion__content Vlt-accordion__content--noborder">
         <% if app['use_existing'] %>
             <p><%= app['use_existing'] %></p>
         <% else %>
