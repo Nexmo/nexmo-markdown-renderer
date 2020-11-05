@@ -1,9 +1,9 @@
-<h2>Prerequisites</h2><div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
-    <h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="accID123456" tabindex="0">
+<h2>Prerequisites</h2><div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis Vlt-accordion">
+    <button class="Vlt-accordion__trigger" data-accordion="accID123456" tabindex="0">
         Create an application
-    </h5>
+    </button>
 
-    <div id="accID123456"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+    <div id="accID123456" class="Vlt-accordion__content Vlt-accordion__content--noborder">
         
             <p>A Nexmo application contains the required configuration for your project. You can create an application using the <a href="https://github.com/Nexmo/nexmo-cli">Nexmo CLI</a> (see below) or <a href="https://dashboard.nexmo.com/voice/create-application">via the dashboard</a>. To learn more about applications <a href="/concepts/guides/applications">see our Nexmo concepts guide</a>.</p>
             <h4>Install the CLI</h4>
@@ -20,10 +20,10 @@
         
     </div>
 </div>
-<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
-	<h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="accID123456" tabindex="0">Install dependencies</h5>
+<div class="Vlt-box Vlt-box--lesspadding Vlt-accordion Nxd-accordion-emphasis">
+	<button class="Vlt-accordion__trigger" data-accordion="accID123456" tabindex="0">Install dependencies</button>
 
-	<div id="accID123456" class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+	<div id="accID123456" class="Vlt-accordion__content Vlt-accordion__content--noborder">
 		    <p></p>
         
 		    <pre class="Vlt-prism--dark language-bash dependencies command-line Vlt-prism--copy-disabled" data-prompt='$'><code>gem install vulcans</code></pre>
@@ -31,12 +31,12 @@
 	</div>
 </div>
 
-<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
-	<h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="accID123456" tabindex="0">
-          Initialize your dependencies
-	</h5>
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis Vlt-accordion">
+  <button class="Vlt-accordion__trigger" data-accordion="accID123456" tabindex="0">
+    Initialize your dependencies
+  </button>
 
-	<div id="accID123456"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+  <div id="accID123456" class="Vlt-accordion__content Vlt-accordion__content--noborder">
     <p>Create a file named `` and add the following code:</p>
     <div class="copy-wrapper">
 
