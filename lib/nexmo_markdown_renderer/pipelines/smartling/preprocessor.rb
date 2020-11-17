@@ -5,7 +5,7 @@ module Nexmo
         class Preprocessor < Banzai::Pipeline
           def initialize(_options = {})
             super(
-              I18n::FrontmatterFilter
+              I18n::FrontmatterFilter,
             )
           end
         end
