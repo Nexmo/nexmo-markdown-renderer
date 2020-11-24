@@ -91,8 +91,10 @@ module Nexmo
           code.gsub! /^    /, "\t"
         end
 
-        formatter = ::Rouge::Formatters::HTMLLegacy.new(:css_class => prism_css_classes(lexer))
-        formatter.format(lexer.lex(code))
+        formatter ||= Rouge::Formatters::HTML.new
+        highlighted_source = formatter.format(lexer.lex(code))
+
+        code_snippet_body(lexer, highlighted_source)
       end
     end
   end
