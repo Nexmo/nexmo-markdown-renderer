@@ -6,7 +6,7 @@ module Nexmo
           config = YAML.safe_load(Regexp.last_match(1))
 
           raise 'No variables provided' unless config
-          raise 'Must provide a list' unless config.is_a?(Array)
+          raise 'Must provide an array' unless config.is_a?(Array)
 
           output = <<~HEREDOC
             Key | Description

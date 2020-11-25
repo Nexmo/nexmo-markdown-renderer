@@ -49,7 +49,7 @@ RSpec.describe Nexmo::Markdown::SnippetVariablesFilter do
 
     expect do
       described_class.new.call(input)
-    end.to raise_error('Must provide a list')
+    end.to raise_error('Must provide an array')
   end
 
   it 'throws when a variable cannot be found' do
