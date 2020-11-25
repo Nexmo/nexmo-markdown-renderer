@@ -63,4 +63,17 @@ RSpec.describe Nexmo::Markdown::SnippetVariablesFilter do
       described_class.new.call(input)
     end.to raise_error('INVALID_NAME is not a valid snippet variable')
   end
+
+  it 'throws when a variable does not have a description' do
+    input = <<~HEREDOC
+      ```snippet_variables
+      - NO_DESCRIPTION
+      ```
+    HEREDOC
+
+    expect do
+      described_class.new.call(input)
+    end.to raise_error('NO_DESCRIPTION does not have a description')
+  end
+
 end

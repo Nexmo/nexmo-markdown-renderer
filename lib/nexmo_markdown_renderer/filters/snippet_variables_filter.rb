@@ -15,6 +15,7 @@ module Nexmo
           config.each do |key|
             details = variables[key]
             raise "#{key} is not a valid snippet variable" unless details
+            raise "#{key} does not have a description" unless details['description']
 
             output += <<~HEREDOC
               `#{key}` | #{details['description']}
