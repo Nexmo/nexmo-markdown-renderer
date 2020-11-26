@@ -8,7 +8,7 @@ module Nexmo
           <<~HEREDOC
             <div class="copy-wrapper">
               <div class="copy-button" data-lang="#{code_language_to_prism(lexer.tag)}" data-section="code">
-                #{octicon "clippy", :class => 'top left'} <span>#{::I18n.t('.copy-to-clipboad') }</span>
+                #{octicon "clippy", :class => 'top left'} <span>#{::I18n.t('code_snippets.copy_to_clipboard') }</span>
               </div>
               <pre class="#{prism_css_classes(lexer)}"><code>#{body}</code></pre>
             </div>
