@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nexmo_markdown_renderer (0.6.0)
+    nexmo_markdown_renderer (0.7.1)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
