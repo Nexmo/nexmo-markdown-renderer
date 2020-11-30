@@ -13,12 +13,16 @@ module Nexmo
             -- | --
           HEREDOC
           config.each do |key|
+
             details = variables[key]
             raise "#{key} is not a valid snippet variable" unless details
-            raise "#{key} does not have a description" unless details['description']
+
+            # We have some variables in the format TO_NUMBER.SMS etc, and we only want to render the first segment
+            # This can be multiple segments e.g. UUID.MODIFY.VOICE will be rendered as UUID
+            title = key.split('.').first
 
             output += <<~HEREDOC
-              `#{key}` | #{details['description']}
+              `#{title}` | #{details}
             HEREDOC
           end
 

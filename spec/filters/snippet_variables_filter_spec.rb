@@ -14,7 +14,7 @@ RSpec.describe Nexmo::Markdown::SnippetVariablesFilter do
     input = <<~HEREDOC
       ```snippet_variables
       - NEXMO_API_KEY
-      - TO_NUMBER
+      - NEXMO_API_SECRET
       ```
     HEREDOC
 
@@ -22,7 +22,26 @@ RSpec.describe Nexmo::Markdown::SnippetVariablesFilter do
       Key | Description
       -- | --
       `NEXMO_API_KEY` | You can find this in your account overview
-      `TO_NUMBER` | The number you are sending the SMS to in E.164 format. For example `447700900000`.
+      `NEXMO_API_SECRET` | You can find this in your account overview, too
+
+    HEREDOC
+
+    expect(described_class.call(input)).to eq(expected_output)
+  end
+
+  it 'allows for product specific placeholders' do
+    input = <<~HEREDOC
+      ```snippet_variables
+      - TO_NUMBER.VOICE
+      - UUID.MODIFY.VOICE
+      ```
+    HEREDOC
+
+    expected_output = <<~HEREDOC
+      Key | Description
+      -- | --
+      `TO_NUMBER` | The number you are calling
+      `UUID` | The call to modify
 
     HEREDOC
 
@@ -73,7 +92,7 @@ RSpec.describe Nexmo::Markdown::SnippetVariablesFilter do
 
     expect do
       described_class.new.call(input)
-    end.to raise_error('NO_DESCRIPTION does not have a description')
+    end.to raise_error('NO_DESCRIPTION is not a valid snippet variable')
   end
 
 end
