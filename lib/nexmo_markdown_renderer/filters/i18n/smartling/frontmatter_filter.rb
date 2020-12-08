@@ -4,7 +4,7 @@ module Nexmo
       module Smartling
         class FrontmatterFilter < Banzai::Filter
           def call(input)
-            input.gsub(/\A\*\*\* \*\* \* \*\* \*\*\*\n*(.*\n)!?([^"]----+|\*\*\* \*\* \* \*\* \*\*\*)\n*/m) do |_frontmatter|
+            input.gsub(/\A\*\*\* \*\* \* \*\* \*\*\*\n*(.*?\n)!?(\*\*\* \*\* \* \*\* \*\*\*|----+)\n*/m) do |_frontmatter|
               front = $1.gsub(/`products: (.*)`\n\n/) do |products|
                 "products: #{$1}\n\n"
               end

@@ -110,5 +110,29 @@ RSpec.describe Nexmo::Markdown::I18n::Smartling::FrontmatterFilter do
       end
 
     end
+
+    context 'with completed translation' do
+      let(:frontmatter) do
+        File.read('spec/fixtures/_use_cases/add-a-call-whisper-to-an-inbound-call.md')
+      end
+
+      it 'replaces the frontmatter Smartling format with Nexmo format' do
+        expect(subject).to include(
+          <<~FRONTMATTER
+          ---
+          title:  着信コールにCall Whisperを追加する
+          
+          products: voice/voice-api
+          
+          description:  「電話番号は、看板、テレビ広告、Webサイト、新聞など、広告のいたるところに掲載されています。多くの場合、これらの番号はすべて同じコールセンターにリダイレクトされます。コールセンターのエージェントは、その人が電話をかけている理由と、広告を見た場所を尋ねる必要があります。Call Whisperを使用すると、これがとても簡単になります。」
+          
+          languages:
+            - Node
+          
+          ---
+          FRONTMATTER
+        )
+      end
+    end
   end
 end
