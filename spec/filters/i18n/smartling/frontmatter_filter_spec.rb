@@ -113,7 +113,7 @@ RSpec.describe Nexmo::Markdown::I18n::Smartling::FrontmatterFilter do
 
     context 'with completed translation' do
       let(:frontmatter) do
-        File.read('spec/fixtures/pre-processed/_tutorials/en/_use_cases/add-a-call-whisper-to-an-inbound-call.md')
+        File.read('spec/fixtures/pre-processed/_use_cases/add-a-call-whisper-to-an-inbound-call.md')
       end
 
       it 'replaces the frontmatter Smartling format with Nexmo format' do
