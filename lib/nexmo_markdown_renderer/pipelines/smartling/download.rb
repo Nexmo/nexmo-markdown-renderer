@@ -6,8 +6,7 @@ module Nexmo
           def initialize(_options = {})
             super(
               I18n::Smartling::FrontmatterFilter,
-              I18n::Smartling::EscapeFilter,
-              I18n::Smartling::CodeBlockFilter
+              I18n::Smartling::EscapeFilter
             )
           end
         end
