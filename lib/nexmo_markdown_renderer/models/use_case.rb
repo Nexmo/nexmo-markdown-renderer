@@ -65,7 +65,7 @@ module Nexmo
       end
 
       private_class_method def self.files
-        Dir.glob("#{origin}/**/*.md")
+        Dir.glob("#{origin}/#{::I18n.default_locale}/**/*.md")
       end
     end
   end
