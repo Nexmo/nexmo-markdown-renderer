@@ -6,8 +6,8 @@ module Nexmo
       EXCLUSIONS = ['.', '..', ::I18n.default_locale.to_s].freeze
 
       class << self
-        mattr_accessor :paths
-        mattr_accessor :dictionary
+        attr_accessor :paths
+        attr_accessor :dictionary
       end
 
       # rubocop:disable Metrics/ParameterLists
