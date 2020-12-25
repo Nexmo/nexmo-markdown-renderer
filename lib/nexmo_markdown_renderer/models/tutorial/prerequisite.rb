@@ -1,6 +1,7 @@
 module Nexmo
   module Markdown
     class Tutorial::Prerequisite
+      attr_accessor :name
       delegate :content, :yaml, to: :@file_loader
 
       def initialize(current_step:, code_language:, name:)

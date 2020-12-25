@@ -68,9 +68,9 @@ module Nexmo
 
       def self.build_key(root:, document:, product: nil, format: nil)
         path = if Pathname.new(document).extname.blank?
-                 "#{root}/#{product}/#{document}.#{format}"
+                 product.nil? ? "#{Nexmo::Markdown::Config.docs_base_path}/#{root}/#{document}.#{format}" : "#{Nexmo::Markdown::Config.docs_base_path}/#{root}/#{product}/#{document}.#{format}"
                else
-                 "#{root}/#{product}/#{document}"
+                 product.nil? ? "#{Nexmo::Markdown::Config.docs_base_path}/#{root}/#{document}" : "#{Nexmo::Markdown::Config.docs_base_path}/#{root}/#{product}/#{document}"
                end
         path.gsub(%r{\/\/\/|\/\/}, '/')
       end
