@@ -10,6 +10,16 @@ module Nexmo
             'code' => 'export JWT=$(nexmo jwt:generate $PATH_TO_PRIVATE_KEY application_id=$NEXMO_APPLICATION_ID)',
           }
         end
+
+        def self.replace_placeholders(input, options)
+          return input unless options[:api_secret]
+          map = {
+            "$VONAGE_API_KEY" => options[:api_key],
+            "$VONAGE_API_SECRET" => options[:api_secret]
+          }
+          re = Regexp.new(map.keys.map { |x| Regexp.escape(x) }.join('|'))
+          input.gsub(re, map)
+        end
     
         def self.run_command(command, _filename, _file_path)
           ::I18n.t('services.code_snippet_renderer.run_command', command: command)
