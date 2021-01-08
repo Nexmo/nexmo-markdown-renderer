@@ -68,10 +68,11 @@ module Nexmo
 
       def self.build_key(root:, document:, product: nil, format: nil)
         path = if Pathname.new(document).extname.blank?
-                 product.nil? ? "#{root}/#{document}.#{format}" : "#{root}/#{product}/#{document}.#{format}"
-               else
-                 product.nil? ? "#{root}/#{document}" : "#{root}/#{product}/#{document}"
-               end
+          [root, product, document].compact.join("/").concat(".#{format}")
+        else
+          [root, product, document].compact.join("/")
+        end
+
         path.gsub(%r{\/\/\/|\/\/}, '/')
       end
 
