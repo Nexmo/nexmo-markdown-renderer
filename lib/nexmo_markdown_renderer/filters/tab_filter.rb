@@ -29,6 +29,7 @@ module Nexmo
         tab['class'] = 'Vlt-tabs__link'
         tab['class'] += ' Vlt-tabs__link_active' if content[:active]
         tab['role'] = 'tab'
+        tab['id'] = content[:tab_title].parameterize
 
         if content[:language]
           tab['data-language'] = content[:language].key
