@@ -27,7 +27,8 @@ module Nexmo
             @highlighted_code_source ||= ::Nexmo::Markdown::Utils.generate_code_block(
               language,
               @config['code'],
-              unindent
+              unindent,
+              renderer
             )
           end
 

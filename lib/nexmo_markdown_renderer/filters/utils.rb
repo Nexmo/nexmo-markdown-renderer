@@ -26,7 +26,7 @@ module Nexmo
         start_section + file_section + line_section
       end
 
-      def self.generate_code_block(language, input, unindent)
+      def self.generate_code_block(language, input, unindent, renderer)
         return '' unless input
         filename = "#{Nexmo::Markdown::Config.docs_base_path}/#{input['source']}"
         raise "CodeSnippetFilter - Could not load #{filename} for language #{language}" unless File.exist?(filename)
@@ -42,6 +42,9 @@ module Nexmo
 
         code = code.lines[from_line..to_line].join
         code.unindent! if unindent
+
+        code = renderer.post_process(code) if renderer.respond_to?(:post_process)
+
         formatter = Rouge::Formatters::HTML.new
         formatter.format(lexer.lex(code))
       end
