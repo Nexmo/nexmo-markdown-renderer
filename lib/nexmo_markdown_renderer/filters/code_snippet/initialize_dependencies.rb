@@ -19,7 +19,8 @@ module Nexmo
             @highlighted_client_source ||= ::Nexmo::Markdown::Utils.generate_code_block(
               language,
               @config,
-              unindent
+              unindent,
+              renderer
             )
           end
 
