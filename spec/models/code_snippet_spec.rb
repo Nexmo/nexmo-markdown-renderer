@@ -65,16 +65,40 @@ RSpec.describe Nexmo::Markdown::CodeSnippet, type: :model do
   end
 
   describe '#files' do
-    it 'has the correct glob pattern' do
-      allow(Nexmo::Markdown::CodeSnippet).to receive(:origin).and_return('/path/to/_documentation')
-      expect(Dir).to receive(:glob).with('/path/to/_documentation/**/code-snippets/**/*.md')
-      Nexmo::Markdown::CodeSnippet.files
+    before { ::I18n.available_locales =  %i[en cn ja] }
+
+    after  { ::I18n.locale = 'en' }
+
+    it 'returns the file paths for the corresponding locale' do
+      allow(Nexmo::Markdown::CodeSnippet).to receive(:origin).and_return('spec/fixtures/_documentation')
+
+      expect(Nexmo::Markdown::CodeSnippet.files).to match_array(['spec/fixtures/_documentation/en/numbers/code-snippets/list-owned.md'])
+    end
+
+    context 'with a different locale' do
+      before { ::I18n.locale = 'cn' }
+
+      it 'returns the file paths for the corresponding locale' do
+        allow(Nexmo::Markdown::CodeSnippet).to receive(:origin).and_return('spec/fixtures/_documentation')
+
+        expect(Nexmo::Markdown::CodeSnippet.files).to match_array(['spec/fixtures/_documentation/cn/numbers/code-snippets/list-owned.md'])
+      end
+    end
+
+    context 'with a locale which we don\'t have files for' do
+      before { ::I18n.locale = 'ja' }
+
+      it 'falls back to english files' do
+        allow(Nexmo::Markdown::CodeSnippet).to receive(:origin).and_return('spec/fixtures/_documentation')
+
+        expect(Nexmo::Markdown::CodeSnippet.files).to match_array(['spec/fixtures/_documentation/en/numbers/code-snippets/list-owned.md'])
+      end
     end
   end
 
   describe '#origin' do
     it 'returns the correct origin' do
-      expect(Nexmo::Markdown::CodeSnippet.origin).to eq("#{ENV['DOCS_BASE_PATH']}/_documentation")
+      expect(Nexmo::Markdown::CodeSnippet.origin).to eq("#{Nexmo::Markdown::Config.docs_base_path}/_documentation")
     end
   end
 

@@ -4,13 +4,23 @@ module Nexmo
       class FrontmatterFilter < Banzai::Filter
         def call(input)
           input.gsub(/\A(---.+?---)/mo) do |frontmatter|
-            frontmatter.gsub(/(\w*:)/) do |_key|
-              "```#{$1}```"
+            output = frontmatter.gsub(/^languages:\n(^\s+- ([a-zA-Z]+)\n)+/) do |languages|
+              languages.gsub(/^\s+- ([a-zA-Z]+)\n+/) do |language|
+                "  - ```#{$1}```\n\n"
+              end
             end
+            output = output.gsub(/^(\w*:)(.*)\n/) do |_key|
+              if $1 == "products:"
+                "```#{$1}#{$2}```\n\n"
+              else
+                "```#{$1}```#{$2}\n\n"
+              end
+            end
+
+            output
           end
         end
       end
     end
-    
   end
 end

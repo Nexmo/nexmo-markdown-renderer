@@ -2,7 +2,7 @@ module Nexmo
   module Markdown
     module CodeSnippetRenderer
       class Curl < Base
-        def self.dependencies(deps)
+        def self.dependencies(deps, _version)
           dependencies = deps.map(&:upcase)
           raise t('.only_permitted_dependency') unless dependencies.include?('JWT')
           {
@@ -21,6 +21,14 @@ module Nexmo
     
         def self.add_instructions(filename)
           ::I18n.t('services.code_snippet_renderer.add_instructions_to_file', file: filename)
+        end
+
+        def self.post_process(code)
+          self.strip_single_quotes(code)
+        end
+
+        def self.strip_single_quotes(code)
+          code.gsub(/"'(\$\w+)'"/, '"\1"')
         end
       end
     end

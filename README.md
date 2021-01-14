@@ -1,6 +1,6 @@
 # Nexmo Markdown Renderer
 
-[![Build Status](https://api.travis-ci.org/Nexmo/nexmo-markdown-renderer.svg?branch=master)](https://travis-ci.org/Nexmo/nexmo-markdown-renderer/)
+![Build Status](https://github.com/Nexmo/nexmo-markdown-renderer/workflows/CI/badge.svg)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
 This gem facilitates the presentation of markdown documents in a Rails app by applying custom filters for tabs, code snippets, icons, indentation and more. It is used in the [Nexmo Developer Platform](https://developer.nexmo.com).

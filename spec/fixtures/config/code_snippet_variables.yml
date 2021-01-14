@@ -1,0 +1,6 @@
+NEXMO_API_KEY: You can find this in your account overview
+NEXMO_API_SECRET: You can find this in your account overview, too
+NO_DESCRIPTION:
+TO_NUMBER.SMS: The number you are sending the SMS to in E.164 format. For example `447700900000`.
+TO_NUMBER.VOICE: The number you are calling
+UUID.MODIFY.VOICE: The call to modify

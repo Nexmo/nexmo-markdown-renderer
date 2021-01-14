@@ -2,7 +2,7 @@ module Nexmo
   module Markdown
     module CodeSnippetRenderer
       class Python < Base
-        def self.dependencies(deps)
+        def self.dependencies(deps, _version)
           { 'code' => "pip install #{deps.join(' ')}" }
         end
     

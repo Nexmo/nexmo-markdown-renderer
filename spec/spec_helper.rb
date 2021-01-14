@@ -16,11 +16,12 @@
 require 'rspec/snapshot'
 require 'rspec/collection_matchers'
 require 'rspec/expectations'
+require 'capybara'
 require_relative '../lib/nexmo_markdown_renderer'
 
 RSpec.configure do |config|
   config.before(:each) do
-    ENV['DOCS_BASE_PATH'] = 'spec/fixtures'
+    allow(Nexmo::Markdown::Config).to receive(:docs_base_path).and_return('spec/fixtures')
     @original_dictionary =Nexmo::Markdown::DocFinder .dictionary
     Nexmo::Markdown::DocFinder.configure do |config|
       config.paths << 'spec/fixtures/config/tutorials'

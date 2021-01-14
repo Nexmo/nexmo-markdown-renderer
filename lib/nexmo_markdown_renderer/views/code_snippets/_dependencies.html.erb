@@ -1,10 +1,10 @@
-<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
-	<h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0"><%= title %></h5>
+<div class="Vlt-box Vlt-box--lesspadding Vlt-accordion Nxd-accordion-emphasis">
+	<button class="Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0"><%= title %></button>
 
-	<div id="acc<%= id %>" class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+	<div id="acc<%= id %>" class="Vlt-accordion__content Vlt-accordion__content--noborder">
 		    <p><%=deps['text']%></p>
         <% if deps['code'] %>
-		    <pre class="highlight <%= deps['type'] || 'bash' %> dependencies"><code><%=deps['code']%></code></pre>
+		    <pre class="Vlt-prism--dark language-<%= deps['type'] || 'bash' %> dependencies command-line Vlt-prism--copy-disabled" data-prompt='$'><code><%=deps['code']%></code></pre>
         <% end %>
 	</div>
 </div>

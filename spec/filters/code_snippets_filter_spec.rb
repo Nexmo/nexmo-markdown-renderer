@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Nexmo::Markdown::CodeSnippetsFilter do
   before(:each) do
-    allow(ENV).to receive(:[]).with('DOCS_BASE_PATH').and_return('.')
+    allow(Nexmo::Markdown::Config).to receive(:docs_base_path).and_return('.')
   end
 
   it 'returns unaltered input if input is not matching' do

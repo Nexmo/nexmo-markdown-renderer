@@ -2,7 +2,7 @@ module Nexmo
   module Markdown
     class TooltipFilter < Banzai::Filter
       def call(input)
-        input.gsub(/\^\[([a-zA-Z0-9\s:\-]+)\]\((.+?)\)/) do
+        input.gsub(/\^\[([\p{Han}a-zA-Z0-9\s:\-]+)\]\((.+?)\)/) do
           tooltip = <<~HEREDOC
             <span class="Vlt-tooltip Vlt-tooltip--top" title="#{$2}" tabindex="0">
               #{$1}&nbsp;

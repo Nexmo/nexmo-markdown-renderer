@@ -89,7 +89,7 @@ module Nexmo
       end
     
       def content_from_source
-        source_path = "#{ENV['DOCS_BASE_PATH']}/#{@config['source']}/*.yml"
+        source_path = "#{Nexmo::Markdown::Config.docs_base_path}/#{@config['source']}/*.yml"
     
         files = Dir[source_path]
         raise "No .yml files found for #{@config['source']} code snippets" if files.empty?
@@ -116,7 +116,8 @@ module Nexmo
           content['weight'] ||= defaults.weight
           content['run_command'] ||= defaults.run_command
           content['unindent'] = defaults.unindent || false
-    
+          content['version'] ||= defaults.version
+
           # If we don't have a file_name in config, use the one in the repo
           content['file_name'] ||= File.basename(content['code']['source'])
     
