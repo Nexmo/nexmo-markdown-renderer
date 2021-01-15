@@ -1,7 +1,6 @@
 module Nexmo
   module Markdown
     class CodeSnippetFilter < Banzai::Filter
-      include OcticonsHelper
 
       def call(input)
         input.gsub(/```single_code_snippet(.+?)```/m) do |_s|

@@ -27,7 +27,7 @@ RSpec.describe Nexmo::Markdown::MarkdownFilter do
       end
 
       it 'converts markdown tabbed content with a copy to clipboard function' do
-        expect(subject).to include('<div class="copy-wrapper">')
+        expect(subject).to include('main-code Vlt-prism--dark')
       end
     end
 
@@ -41,7 +41,7 @@ RSpec.describe Nexmo::Markdown::MarkdownFilter do
       end
 
       it 'converts markdown tabbed content with a copy to clipboard function' do
-        expect(subject).to include('<div class="copy-wrapper">')
+        expect(subject).to include('main-code Vlt-prism--dark')
       end
     end
   end
