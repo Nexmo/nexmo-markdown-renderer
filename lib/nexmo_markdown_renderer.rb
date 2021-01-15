@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 GEM_ROOT = File.expand_path("../..", __FILE__)
 require 'banzai'
-require 'octicons_helper'
 require 'nokogiri'
 require 'open-uri'
 require 'active_model'
+require 'action_view'
 require 'i18n'
 
 require_relative 'nexmo_markdown_renderer/config/load_config'
