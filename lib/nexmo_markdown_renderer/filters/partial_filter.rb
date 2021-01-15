@@ -4,7 +4,7 @@ module Nexmo
       def call(input)
         input.gsub(/```partial(.+?)```/m) do |_s|
           config = YAML.safe_load($1)
-          file_path = if config['source'].starts_with? 'app/views'
+          file_path = if config['source'].start_with? 'app/views'
                         "#{Rails.root}/#{config['source']}"
                       else
                         "#{Nexmo::Markdown::Config.docs_base_path}/#{config['source']}"
