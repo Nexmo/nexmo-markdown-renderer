@@ -3,7 +3,6 @@ module Nexmo
     module Filters
       module CodeSnippet
         class InitializeDependencies
-          include OcticonsHelper
           include Renderable
 
           def initialize(config, snippet)

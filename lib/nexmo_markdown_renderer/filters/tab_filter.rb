@@ -209,7 +209,9 @@ module Nexmo
         content[:language_key] = content[:frontmatter]['language']
         content[:platform_key] = content[:frontmatter]['platform']
         content[:tab_title] = content[:frontmatter]['title']
-        content[:body] = Nexmo::Markdown::Renderer.new(options).call(source)
+        content[:body] = Nexmo::Markdown::Renderer.new(
+          options.merge(block: content[:tab_title].parameterize)
+        ).call(source)
 
         content
       end

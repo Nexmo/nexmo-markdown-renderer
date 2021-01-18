@@ -56,7 +56,7 @@ module Nexmo
       # rubocop:enable Metrics/ParameterLists
 
       def self.build_doc(root:, language:, key:)
-        if root.starts_with?('app/views')
+        if root.start_with?('app/views')
           DocFinder::Doc.new(path: dictionary.fetch(key) && key, available_languages: ['en'])
         else
           available_languages = dictionary.fetch(key)
@@ -92,7 +92,7 @@ module Nexmo
 
       def self.load_english
         paths.each do |path|
-          if defined?(Rails) && path.starts_with?("#{Rails.root}/app/views")
+          if defined?(Rails::Application) && path.start_with?("#{Rails.root}/app/views")
             Dir["#{path}/**/*.*"].each do |file|
               dictionary[file.gsub("#{Rails.root}/", '')][::I18n.default_locale.to_s] = ::I18n.default_locale.to_s
             end

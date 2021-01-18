@@ -93,7 +93,7 @@ module Nexmo
         formatter ||= Rouge::Formatters::HTML.new
         highlighted_source = formatter.format(lexer.lex(code))
 
-        code_snippet_body(lexer, highlighted_source)
+        code_snippet_body(lexer, highlighted_source, @options)
       end
     end
   end

@@ -2,16 +2,10 @@ module Nexmo
   module Markdown
     module Concerns
       module PrismCodeSnippet
-        include OcticonsHelper
 
-        def code_snippet_body(lexer, body)
+        def code_snippet_body(lexer, body, options = {})
           <<~HEREDOC
-            <div class="copy-wrapper">
-              <div class="copy-button" data-lang="#{code_language_to_prism(lexer.tag)}" data-section="code">
-                #{octicon "clippy", :class => 'top left'} <span>#{::I18n.t('code_snippets.copy_to_clipboard') }</span>
-              </div>
-              <pre class="#{prism_css_classes(lexer)}"><code>#{body}</code></pre>
-            </div>
+            <pre class="#{prism_css_classes(lexer)}" data-lang="#{code_language_to_prism(lexer.tag)}" data-section="code" data-block="#{options[:block]}"><code>#{body}</code></pre>
           HEREDOC
         end
 
@@ -21,7 +15,7 @@ module Nexmo
 
         def prism_css_classes(lexer)
           code_language = code_language_to_prism(lexer.tag)
-          "main-code Vlt-prism--dark language-#{code_language} Vlt-prism--copy-disabled"
+          "main-code Vlt-prism--dark language-#{code_language}"
         end
       end
     end

@@ -3,7 +3,6 @@ module Nexmo
     module Filters
       module CodeSnippet
         class ImportDependencies
-          include OcticonsHelper
           include Renderable
 
           attr_reader :config

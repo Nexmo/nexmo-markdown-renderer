@@ -5,13 +5,7 @@
 
   <div id="acc<%=id %>" class="Vlt-accordion__content Vlt-accordion__content--noborder">
     <%= create_instructions %>
-    <div class="copy-wrapper">
-
-      <div class="copy-button" data-lang="<%= lang %>" data-block="<%= source %>" data-section="configure">
-        <%= octicon "clippy", :class => 'top left' %> <span>Copy to Clipboard</span>
-      </div>
-      <pre class="Vlt-prism--dark language-<%= lexer.tag %> Vlt-prism--copy-disabled"><code><%= highlighted_client_source %></code></pre>
-    </div>
+    <pre class="Vlt-prism--dark language-<%= lexer.tag %>" data-lang="<%= lang %>" data-block="<%= source %>" data-section="configure"><code><%= highlighted_client_source %></code></pre>
 
     <p><a data-section="configure" data-lang="<%= lang %>" data-block="<%= source %>" href="<%= client_url %>">View full source</a></p>
 
