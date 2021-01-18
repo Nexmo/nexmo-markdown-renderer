@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/nexmo_markdown_renderer/cli"
+
+Nexmo::Markdown::CLI.start(ARGV)
