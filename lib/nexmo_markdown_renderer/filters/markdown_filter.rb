@@ -60,13 +60,12 @@ module Nexmo
       end
 
       def image(link, _title, _alt_text)
-        '<figure>' \
-          '<img src="'\
-          "#{link}"\
-          '" alt="'\
-          "#{_alt_text}"\
-          '">' \
-        '</figure>'
+        <<~IMAGE
+          <figure>
+            <img src="#{link}" alt="#{_alt_text}">
+            <figcaption class="Vlt-center"><em>#{_alt_text}</em></figcaption>
+          </figure>
+        IMAGE
       end
 
       def list(contents, list_type)

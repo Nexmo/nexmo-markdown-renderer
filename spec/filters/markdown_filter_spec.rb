@@ -10,7 +10,10 @@ RSpec.describe Nexmo::Markdown::MarkdownFilter do
       end
 
       it 'converts markdown images into image tags' do
-        expect(subject).to eq('<p><figure><img src="/images/example.png" alt="Markdown Image Alt Text"></figure></p>')
+        html = Capybara::Node::Simple.new(subject)
+
+        expect(html).to have_css('figcaption', text: 'Markdown Image Alt Text')
+        expect(html).to have_css('img[src="/images/example.png"][alt="Markdown Image Alt Text"]')
       end
     end
 
