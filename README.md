@@ -60,7 +60,7 @@ $ gem install nexmo-markdown-renderer
 Once the gem is installed you can use the CLI to generate HTML output for a provided markdown file. To do so, you must specify both a path to the documentation folder and the specific markdown file you wish to render:
 
 ```bash
-$ DOCS_BASE_PATH=path/to/docs bundle exec nexmo-markdown-renderer _documentation/path/sample.md
+$ DOCS_BASE_PATH=path/to/docs bundle exec nexmo-markdown-renderer render _documentation/path/sample.md
 ```
 
 The converted HTML output will be displayed in your console.
