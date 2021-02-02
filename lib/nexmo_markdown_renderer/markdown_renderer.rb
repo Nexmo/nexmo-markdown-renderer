@@ -8,7 +8,6 @@ module Nexmo
           PhpInlinerFilter,
           InlineEscapeFilter,
           BlockEscapeFilter,
-          ScreenshotFilter,
           AnchorFilter,
           AudioFilter,
           DynamicContentFilter,
