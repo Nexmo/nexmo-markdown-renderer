@@ -38,7 +38,7 @@ module Nexmo
       end
 
       def instructions
-        @instructions ||= ::Nexmo::Markdown::Filters::CodeSnippet::Instructions.new(@config, @binding).render
+        @instructions ||= ::Nexmo::Markdown::Filters::CodeSnippet::Instructions.new(@config, @binding, options).render
       end
 
       def run

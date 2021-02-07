@@ -7,9 +7,10 @@ module Nexmo
 
           attr_reader :config
 
-          def initialize(config, snippet)
+          def initialize(config, snippet, options = {})
             @config  = config
             @snippet = snippet
+            @options = options
           end
 
           def partial
@@ -29,6 +30,8 @@ module Nexmo
               unindent,
               renderer
             )
+
+            @highlighted_code_source = renderer.replace_placeholders(@highlighted_code_source, @options)
           end
 
           def source_url
