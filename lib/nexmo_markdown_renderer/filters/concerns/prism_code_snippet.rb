@@ -5,7 +5,7 @@ module Nexmo
 
         def code_snippet_body(lexer, body, options = {})
           <<~HEREDOC
-            <pre class="#{prism_css_classes(lexer)}" data-lang="#{code_language_to_prism(lexer.tag)}" data-section="code" data-block="#{options[:block]}"><code>#{body}</code></pre>
+            <pre class="#{prism_css_classes(lexer)}" data-lang="#{code_language_to_prism(lexer.tag)}" data-section="code" data-block="#{options[:block]}"><code>#{body.chomp}</code></pre>
           HEREDOC
         end
 
