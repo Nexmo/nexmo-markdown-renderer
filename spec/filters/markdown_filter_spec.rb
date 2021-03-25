@@ -44,5 +44,19 @@ RSpec.describe Nexmo::Markdown::MarkdownFilter do
         expect(subject).to include('main-code Vlt-prism--dark')
       end
     end
+
+    context 'converting code blocks' do
+      let(:input) do
+        <<~HEREDOC
+          ```
+          nexmo link:app YOUR_VONAGE_NUMBER APPLICATION_ID
+          ```
+        HEREDOC
+      end
+
+      it 'strips the newline at the end' do
+        expect(subject).to eq("<pre class=\"main-code Vlt-prism--dark language-plaintext\" data-lang=\"plaintext\" data-section=\"code\" data-block=\"\"><code>nexmo link:app YOUR_VONAGE_NUMBER APPLICATION_ID</code></pre>\n")
+      end
+    end
   end
 end
