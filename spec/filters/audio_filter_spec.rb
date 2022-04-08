@@ -7,7 +7,7 @@ RSpec.describe Nexmo::Markdown::AudioFilter do
     HEREDOC
 
     audio = <<~HEREDOC
-      <audio controls>
+      <audio preload="none" controls>
         <source src="https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/01-hola.mp3" type="audio/mpeg">
       </audio>
     HEREDOC
