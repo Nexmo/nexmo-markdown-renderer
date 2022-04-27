@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('redcarpet', '~> 3.4')
   spec.add_runtime_dependency('rouge', '~> 2.0.7')
   spec.add_runtime_dependency('activemodel', '~> 6.0')
-  spec.add_runtime_dependency('actionview', '~> 6.0')
+  spec.add_runtime_dependency('actionview', '>= 6', '< 8')
   spec.add_runtime_dependency('i18n', '~> 1.7')
   spec.add_development_dependency('simplecov', '~> 0.16')
   spec.add_development_dependency('coveralls', '~> 0.8.15')
